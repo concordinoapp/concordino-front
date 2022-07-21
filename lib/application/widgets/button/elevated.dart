@@ -16,8 +16,7 @@ class ElevatedCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const SizedBox(height: 30),
@@ -32,7 +31,6 @@ class ElevatedCustom extends StatelessWidget {
             child: Text(content),
           ),
         ],
-      ),
     );
   }
 }
