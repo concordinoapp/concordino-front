@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ElevatedCustom extends StatelessWidget {
-  const ElevatedCustom({Key? key, required this.content, required this.textColor, required this.backgroundColor}) : super(key: key);
+  const ElevatedCustom(
+      {Key? key,
+      required this.content,
+      required this.textColor,
+      required this.backgroundColor})
+      : super(key: key);
   final String content;
   final Color textColor;
   final Color backgroundColor;
-  
+
+  // Use button on view :
+  // const ElevatedCustom(content: "Connexion", textColor: Color.fromARGB(255, 107, 23, 81), backgroundColor: Color.fromARGB(249, 249, 249, 249),),
+
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
 class OutlinedCustom extends StatelessWidget {
-  const OutlinedCustom({Key? key, required this.content, required this.textColor, required this.borderColor}) : super(key: key);
+  const OutlinedCustom(
+      {Key? key,
+      required this.content,
+      required this.textColor,
+      required this.borderColor})
+      : super(key: key);
   final String content;
   final Color textColor;
   final Color borderColor;
+
+  // Use button on view :
+  // const OutlinedCustom(content: "J'ai déjà un compte", textColor: Color.fromARGB(249, 249, 249, 249), borderColor: Color.fromARGB(249, 249, 249, 249),),
+
   @override
   Widget build(BuildContext context) {
     return Container(
