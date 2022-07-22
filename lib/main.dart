@@ -1,5 +1,5 @@
+import 'package:concordino_front/application/views/login_view.dart';
 import 'package:flutter/material.dart';
-import 'application/views/welcome_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           bodyText1: TextStyle(color: Colors.white),
         ),
       ),
-      home: const WelcomePage(),
+      home: const LoginPage(),
     );
   }
 }
