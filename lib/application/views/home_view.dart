@@ -1,5 +1,6 @@
 import 'package:concordino_front/application/widgets/card_cave.dart';
 import 'package:concordino_front/application/widgets/card_stat.dart';
+import 'package:concordino_front/application/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
