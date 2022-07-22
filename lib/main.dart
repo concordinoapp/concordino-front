@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'application/views/home_view.dart';
+import 'application/views/welcome_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // fontFamily: GoogleFonts.lato().fontFamily,
         // brightness: Brightness.dark,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyText1: TextStyle(color: Colors.white),
         ),
       ),
-      home: const HomePage(),
+      home: const WelcomePage(),
     );
   }
 }

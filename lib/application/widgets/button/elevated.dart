@@ -19,10 +19,11 @@ class ElevatedCustom extends StatelessWidget {
     return Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const SizedBox(height: 30),
+          const SizedBox(height: 30,),
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
+              minimumSize: const Size(300,  50),
               primary: backgroundColor,
               onPrimary: textColor,
               shape: const RoundedRectangleBorder(
@@ -34,5 +35,3 @@ class ElevatedCustom extends StatelessWidget {
     );
   }
 }
-
-//find boxshadow flutter.
