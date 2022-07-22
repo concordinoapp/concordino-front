@@ -34,7 +34,6 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
-              const InputCustom(content: "E-mail", backgroundColor: Color.fromARGB(249, 249, 249, 249),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

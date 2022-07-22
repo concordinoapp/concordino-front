@@ -8,7 +8,7 @@ class InputCustom extends StatelessWidget {
   final Color backgroundColor;
 
   // Use button on view :
-  // const ElevatedCustom(content: "Connexion", textColor: Color.fromARGB(255, 107, 23, 81), backgroundColor: Color.fromARGB(249, 249, 249, 249),),
+  // const InputCustom(content: "E-mail", backgroundColor: Color.fromARGB(249, 249, 249, 249),),
 
   @override
   Widget build(BuildContext context) {
