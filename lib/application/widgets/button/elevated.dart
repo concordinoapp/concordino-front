@@ -1,3 +1,4 @@
+import 'package:concordino_front/application/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 class ElevatedCustom extends StatelessWidget {
@@ -17,21 +18,28 @@ class ElevatedCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const SizedBox(height: 30,),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(300,  50),
-              primary: backgroundColor,
-              onPrimary: textColor,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(11))),
-            ),
-            child: Text(content),
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        const SizedBox(
+          height: 30,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginPage()),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            minimumSize: const Size(300, 50),
+            primary: backgroundColor,
+            onPrimary: textColor,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(11))),
           ),
-        ],
+          child: Text(content),
+        ),
+      ],
     );
   }
 }

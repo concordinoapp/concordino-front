@@ -1,5 +1,4 @@
 import 'package:concordino_front/application/widgets/button/elevated.dart';
-import 'package:concordino_front/application/widgets/button/outlined.dart';
 import 'package:concordino_front/application/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 

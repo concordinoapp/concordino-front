@@ -1,3 +1,4 @@
+import 'package:concordino_front/application/views/register_view.dart';
 import 'package:flutter/material.dart';
 
 class OutlinedCustom extends StatelessWidget {
@@ -21,7 +22,12 @@ class OutlinedCustom extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: 30),
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const RegisterPage()),
+            );
+          },
           style: OutlinedButton.styleFrom(
             minimumSize: const Size(300, 50),
             primary: textColor,
