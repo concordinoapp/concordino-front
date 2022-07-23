@@ -1,4 +1,3 @@
-import 'package:concordino_front/application/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 class ElevatedCustom extends StatelessWidget {
@@ -6,9 +5,10 @@ class ElevatedCustom extends StatelessWidget {
       {Key? key,
       required this.content,
       required this.textColor,
-      required this.backgroundColor})
+      required this.backgroundColor,required this.routes})
       : super(key: key);
   final String content;
+  final String routes;
   final Color textColor;
   final Color backgroundColor;
 
@@ -25,10 +25,7 @@ class ElevatedCustom extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const LoginPage()),
-            );
+            Navigator.pushNamed(context, routes);  
           },
           style: ElevatedButton.styleFrom(
             minimumSize: const Size(300, 50),

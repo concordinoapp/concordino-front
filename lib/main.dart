@@ -1,4 +1,7 @@
 import 'package:concordino_front/application/views/welcome_view.dart';
+import 'package:concordino_front/application/views/login_view.dart';
+import 'package:concordino_front/application/views/register_view.dart';
+import 'package:concordino_front/application/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +22,13 @@ class MyApp extends StatelessWidget {
           bodyText1: TextStyle(color: Colors.white),
         ),
       ),
-      home: const WelcomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const WelcomePage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
