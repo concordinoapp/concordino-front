@@ -5,10 +5,11 @@ class ElevatedCustom extends StatelessWidget {
       {Key? key,
       required this.content,
       required this.textColor,
-      required this.backgroundColor,required this.routes})
+      required this.backgroundColor,
+      required this.route})
       : super(key: key);
   final String content;
-  final String routes;
+  final String route;
   final Color textColor;
   final Color backgroundColor;
 
@@ -25,7 +26,7 @@ class ElevatedCustom extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, routes);  
+            Navigator.pushNamed(context, route);
           },
           style: ElevatedButton.styleFrom(
             minimumSize: const Size(300, 50),

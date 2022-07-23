@@ -1,5 +1,4 @@
 import 'package:concordino_front/application/widgets/button/elevated.dart';
-import 'package:concordino_front/application/widgets/button/outlined.dart';
 import 'package:concordino_front/application/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 
@@ -62,6 +61,7 @@ class RegisterPage extends StatelessWidget {
                       content: "Connexion",
                       textColor: Color.fromARGB(255, 107, 23, 81),
                       backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                      route: "/home",
                     ),
                   ],
                 ),

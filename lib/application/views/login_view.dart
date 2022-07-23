@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                       content: "Connexion",
                       textColor: Color.fromARGB(255, 107, 23, 81),
                       backgroundColor: Color.fromARGB(249, 249, 249, 249),
-                      routes: "/home",
+                      route: "/home",
                     ),
                   ],
                 ),
