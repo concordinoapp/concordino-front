@@ -5,9 +5,11 @@ class OutlinedCustom extends StatelessWidget {
       {Key? key,
       required this.content,
       required this.textColor,
-      required this.borderColor})
+      required this.borderColor,
+      required this.route})
       : super(key: key);
   final String content;
+  final String route;
   final Color textColor;
   final Color borderColor;
 
@@ -17,22 +19,23 @@ class OutlinedCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const SizedBox(height: 30),
-          OutlinedButton(
-            onPressed: () {},
-            style: OutlinedButton.styleFrom(
-              primary: textColor,
-              side: BorderSide(color: borderColor, width: 1),
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(11))),
-            ),
-            child: Text(content),
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        const SizedBox(height: 30),
+        OutlinedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, route);
+          },
+          style: OutlinedButton.styleFrom(
+            minimumSize: const Size(300, 50),
+            primary: textColor,
+            side: BorderSide(color: borderColor, width: 1),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(11))),
           ),
-        ],
+          child: Text(content),
+        ),
+      ],
     );
   }
 }
-
-//find boxshadow flutter.
