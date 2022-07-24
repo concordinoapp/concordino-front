@@ -125,7 +125,25 @@ class HomePage extends StatelessWidget {
               backgroundColor: Colors.pink,
             ),
           ],
-          onTap: (int oui) {},
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, "/home");
+                break;
+              case 1:
+                Navigator.pushNamed(context, "/home");
+                break;
+              case 2:
+                Navigator.pushNamed(context, "/scan");
+                break;
+              case 3:
+                Navigator.pushNamed(context, "/home");
+                break;
+              case 4:
+                Navigator.pushNamed(context, "/home");
+                break;
+            }
+          },
         ),
       ),
     );
