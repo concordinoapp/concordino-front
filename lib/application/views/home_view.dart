@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, "/home");
                 break;
               case 4:
-                Navigator.pushNamed(context, "/home");
+                Navigator.pushNamed(context, "/list");
                 break;
             }
           },
