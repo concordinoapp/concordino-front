@@ -1,5 +1,6 @@
-import 'package:concordino_front/application/widgets/button/elevated.dart';
-import 'package:concordino_front/application/widgets/button/outlined.dart';
+import 'package:concordino_front/constants/colors.dart';
+import 'package:concordino_front/screens/widgets/button/elevated.dart';
+import 'package:concordino_front/screens/widgets/button/outlined.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -12,11 +13,7 @@ class WelcomePage extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-            Color.fromARGB(255, 107, 23, 81),
-            Color.fromARGB(230, 107, 23, 81),
-            Color.fromARGB(250, 8, 7, 8),
-          ])),
+              colors: backgroundGradientDarkTheme)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -59,13 +56,12 @@ class WelcomePage extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Column(
                   children: const [
-                     ElevatedCustom(
-                      content: "Connexion",
-                      textColor: Color.fromARGB(255, 107, 23, 81),
-                      backgroundColor: Color.fromARGB(249, 249, 249, 249),
-                      route: "/login"
-                    ),
-                     OutlinedCustom(
+                    ElevatedCustom(
+                        content: "Connexion",
+                        textColor: Color.fromARGB(255, 107, 23, 81),
+                        backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                        route: "/login"),
+                    OutlinedCustom(
                       content: "J'ai déjà un compte",
                       textColor: Color.fromARGB(249, 249, 249, 249),
                       borderColor: Color.fromARGB(249, 249, 249, 249),
