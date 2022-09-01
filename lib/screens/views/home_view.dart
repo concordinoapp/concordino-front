@@ -88,8 +88,8 @@ class HomePage extends StatelessWidget {
                   childAspectRatio: 0.9,
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  children: [CardCave(), CardCave(), CardCave(), CardCave()],
                   crossAxisCount: 2,
+                  children: const [CardCave(), CardCave(), CardCave(), CardCave()],
                 ),
               ),
             ],
@@ -138,7 +138,7 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, "/home");
                 break;
               case 4:
-                Navigator.pushNamed(context, "/home");
+                Navigator.pushNamed(context, "/list");
                 break;
             }
           },

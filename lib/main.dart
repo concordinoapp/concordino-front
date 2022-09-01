@@ -3,6 +3,7 @@ import 'package:concordino_front/screens/views/login_view.dart';
 import 'package:concordino_front/screens/views/register_view.dart';
 import 'package:concordino_front/screens/views/home_view.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
+import 'package:concordino_front/screens/views/list_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterPage(),
         '/home': (context) => const HomePage(),
         '/scan': (context) => const ScanPage(),
+        '/list': (context) => const ListPage(),
       },
     );
   }

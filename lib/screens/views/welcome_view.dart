@@ -56,16 +56,17 @@ class WelcomePage extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Column(
                   children: const [
-                    ElevatedCustom(
-                        content: "Connexion",
-                        textColor: Color.fromARGB(255, 107, 23, 81),
-                        backgroundColor: Color.fromARGB(249, 249, 249, 249),
-                        route: "/login"),
-                    OutlinedCustom(
+                     ElevatedCustom(
+                      content: "Commencer",
+                      textColor: Color.fromARGB(255, 107, 23, 81),
+                      backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                      route: "/register"
+                    ),
+                     OutlinedCustom(
                       content: "J'ai déjà un compte",
                       textColor: Color.fromARGB(249, 249, 249, 249),
                       borderColor: Color.fromARGB(249, 249, 249, 249),
-                      route: "/register",
+                      route: "/login",
                     ),
                   ],
                 ),

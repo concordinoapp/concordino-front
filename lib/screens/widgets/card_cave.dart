@@ -10,7 +10,7 @@ class CardCave extends StatelessWidget {
       width: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Color.fromARGB(255, 131, 4, 11),
+        color: const Color.fromARGB(255, 131, 4, 11),
         image: const DecorationImage(
           image: NetworkImage(
               'https://s.hdnux.com/photos/76/22/75/16330583/9/rawImage.jpg'),
