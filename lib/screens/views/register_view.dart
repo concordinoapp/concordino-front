@@ -1,5 +1,6 @@
-import 'package:concordino_front/application/widgets/button/elevated.dart';
-import 'package:concordino_front/application/widgets/input/input.dart';
+import 'package:concordino_front/constants/colors.dart';
+import 'package:concordino_front/screens/widgets/button/elevated.dart';
+import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -10,13 +11,10 @@ class RegisterPage extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-            Color.fromARGB(255, 107, 23, 81),
-            Color.fromARGB(230, 107, 23, 81),
-            Color.fromARGB(250, 8, 7, 8),
-          ])),
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: backgroundGradientDarkTheme,
+      )),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
