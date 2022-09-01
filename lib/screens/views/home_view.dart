@@ -1,7 +1,8 @@
-import 'package:concordino_front/application/widgets/appBar/appbar_custom.dart';
-import 'package:concordino_front/application/widgets/card_cave.dart';
-import 'package:concordino_front/application/widgets/card_stat.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/appBar/appbar_custom.dart';
+import '../widgets/card_stat.dart';
+import '../widgets/card_cave.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

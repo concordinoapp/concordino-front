@@ -1,6 +1,6 @@
 import 'dart:convert' as convert;
 
-import 'package:concordino_front/application/widgets/bottle_list_elem.dart';
+import 'package:concordino_front/screens/widgets/bottle_list_elem.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
