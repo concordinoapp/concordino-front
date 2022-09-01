@@ -1,22 +1,20 @@
-import 'package:concordino_front/application/widgets/button/elevated.dart';
-import 'package:concordino_front/application/widgets/input/input.dart';
+import 'package:concordino_front/constants/colors.dart';
+import 'package:concordino_front/screens/widgets/button/elevated.dart';
+import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-            Color.fromARGB(255, 107, 23, 81),
-            Color.fromARGB(230, 107, 23, 81),
-            Color.fromARGB(250, 8, 7, 8),
-          ])),
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: backgroundGradientDarkTheme,
+      )),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -26,16 +24,8 @@ class LoginPage extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
-              // Container(
-              //   child: Container(
-              //     alignment: Alignment(0.0, -1.0),
-              //     width:  MediaQuery.of(context).size.width,
-              //     height: (MediaQuery.of(context).size.height - 300),
-              //     color: Colors.amberAccent,
-              //   ),
-              // ),
               const Text(
-                "Connexion",
+                "Création du compte",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -47,6 +37,10 @@ class LoginPage extends StatelessWidget {
               ),
               const InputCustom(
                 content: "Mot de passe",
+                backgroundColor: Color.fromARGB(249, 249, 249, 249),
+              ),
+              const InputCustom(
+                content: "Confirmation du mot de passe",
                 backgroundColor: Color.fromARGB(249, 249, 249, 249),
               ),
               Container(
@@ -67,7 +61,7 @@ class LoginPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Je n'ai pas de compte ?",
+                      "J'ai déjà un compte ?",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white.withOpacity(0.5),
