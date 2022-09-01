@@ -1,4 +1,3 @@
-// import 'package:concordino_front/application/widgets/shapes/line.dart';
 import 'package:concordino_front/screens/widgets/shapes/line.dart';
 import 'package:flutter/material.dart';
 
