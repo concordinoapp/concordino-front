@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Navbar extends StatelessWidget {
-  const Navbar(
-      {Key? key, required this.content})
-      : super(key: key);
-  final String content;
+class ConcordinoNavbar extends StatelessWidget {
+  const ConcordinoNavbar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

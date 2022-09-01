@@ -1,3 +1,4 @@
+import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class ScanPage extends StatelessWidget {
@@ -41,6 +42,7 @@ class ScanPage extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: const ConcordinoNavbar(),
       ),
     );
   }
