@@ -30,8 +30,8 @@ class ScanPage extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            children: [
-              const Text(
+            children: const [
+              Text(
                 "Connexion",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
