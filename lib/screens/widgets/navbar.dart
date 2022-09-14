@@ -39,7 +39,7 @@ class ConcordinoNavbar extends StatelessWidget {
             Navigator.pushNamed(context, "/home");
             break;
           case 1:
-            Navigator.pushNamed(context, "/home");
+            Navigator.pushNamed(context, "/search");
             break;
           case 2:
             Navigator.pushNamed(context, "/scan");
