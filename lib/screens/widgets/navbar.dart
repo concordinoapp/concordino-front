@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Navbar extends StatelessWidget {
-  const Navbar(
-      {Key? key, required this.content})
-      : super(key: key);
-  final String content;
+class ConcordinoNavbar extends StatelessWidget {
+  const ConcordinoNavbar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +33,7 @@ class Navbar extends StatelessWidget {
           backgroundColor: Colors.pink,
         ),
       ],
-      onTap: (index) {
+      onTap: (index) async {
         switch (index) {
           case 0:
             Navigator.pushNamed(context, "/home");
