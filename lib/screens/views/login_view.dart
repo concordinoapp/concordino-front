@@ -24,13 +24,12 @@ class LoginPage extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
+              // TODO : Rectangle second background
               // Container(
-              //   child: Container(
-              //     alignment: Alignment(0.0, -1.0),
-              //     width:  MediaQuery.of(context).size.width,
-              //     height: (MediaQuery.of(context).size.height - 300),
-              //     color: Colors.amberAccent,
-              //   ),
+              //   alignment: const Alignment(0.0, -1.0),
+              //   width: MediaQuery.of(context).size.width,
+              //   height: (MediaQuery.of(context).size.height - 300),
+              //   color: Colors.amberAccent,
               // ),
               const Text(
                 "Connexion",

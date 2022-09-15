@@ -1,6 +1,7 @@
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
 import 'package:concordino_front/screens/widgets/card_stat.dart';
+import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -88,43 +89,19 @@ class HomePage extends StatelessWidget {
                   childAspectRatio: 0.9,
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  children: [CardCave(), CardCave(), CardCave(), CardCave()],
                   crossAxisCount: 2,
+                  children: const [
+                    CardCave(),
+                    CardCave(),
+                    CardCave(),
+                    CardCave()
+                  ],
                 ),
               ),
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.group),
-              label: 'Home',
-              backgroundColor: Color.fromARGB(255, 131, 4, 11),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Business',
-              backgroundColor: Colors.green,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.camera_alt),
-              label: 'School',
-              backgroundColor: Colors.purple,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.inventory),
-              label: 'Settings',
-              backgroundColor: Color.fromARGB(255, 131, 4, 11),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.receipt_long),
-              label: 'Settings',
-              backgroundColor: Colors.pink,
-            ),
-          ],
-          onTap: (int oui) {},
-        ),
+        bottomNavigationBar: const ConcordinoNavbar(),
       ),
     );
   }

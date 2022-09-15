@@ -24,14 +24,6 @@ class RegisterPage extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
-              // Container(
-              //   child: Container(
-              //     alignment: Alignment(0.0, -1.0),
-              //     width:  MediaQuery.of(context).size.width,
-              //     height: (MediaQuery.of(context).size.height - 300),
-              //     color: Colors.amberAccent,
-              //   ),
-              // ),
               const Text(
                 "Création du compte",
                 style: TextStyle(
