@@ -10,3 +10,5 @@ test:
 
 analyze:
 	@flutter analyze
+
+all_checks: analyze fix test 

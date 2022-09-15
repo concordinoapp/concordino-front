@@ -2,10 +2,10 @@ on:
   pull_request:
     branches:
       - develop
-      - master
+      - main
 name: Analyse & Test
 jobs:
-  build-apk:
+  analyze-test:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
@@ -16,10 +16,11 @@ jobs:
         with:
           flutter-version: '3.3.0'
           channel: stable
-      - name: Build apk
-        run: |
-          flutter pub get
-          flutter format --set-exit-if-changed .
-          flutter analyze
-          flutter test
-          flutter build apk --debug
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Run litter
+        run: flutter format --set-exit-if-changed .
+      - name: Run analyze
+        run: flutter analyze
+      - name: Run test
+        run: flutter test
