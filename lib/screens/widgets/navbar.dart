@@ -1,11 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:concordino_front/screens/views/community_view.dart';
+import 'package:concordino_front/screens/views/home_view.dart';
+import 'package:concordino_front/screens/views/search_view.dart';
+import 'package:concordino_front/screens/views/scan_view.dart';
+import 'package:concordino_front/screens/views/list_view.dart';
 
-class ConcordinoNavbar extends StatelessWidget {
+class ConcordinoNavbar extends StatefulWidget {
   const ConcordinoNavbar({Key? key}) : super(key: key);
+
+  @override
+  State<ConcordinoNavbar> createState() => _ConcordinoNavbarState();
+}
+
+class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
+  int pageIndex = 0;
+
+  final pages = [
+    const HomePage(),
+    const SearchPage(),
+    const ScanPage(),
+    const ListPage(),
+    const CommunityPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.grey,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.group),
@@ -15,12 +39,12 @@ class ConcordinoNavbar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
           label: 'Business',
-          backgroundColor: Colors.green,
+          backgroundColor: Color.fromARGB(255, 131, 4, 11),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.camera_alt),
           label: 'School',
-          backgroundColor: Colors.purple,
+          backgroundColor: Color.fromARGB(255, 131, 4, 11),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.inventory),
@@ -30,28 +54,44 @@ class ConcordinoNavbar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.receipt_long),
           label: 'Settings',
-          backgroundColor: Colors.pink,
+          backgroundColor: Color.fromARGB(255, 131, 4, 11),
         ),
       ],
       onTap: (index) {
         switch (index) {
           case 0:
-            Navigator.pushNamed(context, "/home");
+            Navigator.pushReplacementNamed(context, "/home");
+            setState(() {
+              pageIndex = index;
+            });
             break;
           case 1:
-            Navigator.pushNamed(context, "/search");
+            Navigator.pushReplacementNamed(context, "/home");
+            setState(() {
+              pageIndex = index;
+            });
             break;
           case 2:
-            Navigator.pushNamed(context, "/scan");
+            Navigator.pushReplacementNamed(context, "/scan");
+            setState(() {
+              pageIndex = index;
+            });
             break;
           case 3:
-            Navigator.pushNamed(context, "/home");
+            Navigator.pushReplacementNamed(context, "/home");
+            setState(() {
+              pageIndex = index;
+            });
             break;
           case 4:
-            Navigator.pushNamed(context, "/list");
+            Navigator.pushReplacementNamed(context, "/list");
+            setState(() {
+              pageIndex = index;
+            });
             break;
         }
       },
+      currentIndex: pageIndex,
     );
   }
 }
