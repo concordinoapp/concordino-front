@@ -1,5 +1,10 @@
+import 'package:concordino_front/screens/views/welcome_view.dart';
+import 'package:concordino_front/screens/views/login_view.dart';
+import 'package:concordino_front/screens/views/register_view.dart';
+import 'package:concordino_front/screens/views/home_view.dart';
+import 'package:concordino_front/screens/views/scan_view.dart';
+import 'package:concordino_front/screens/views/list_view.dart';
 import 'package:flutter/material.dart';
-import 'application/views/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +20,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // fontFamily: GoogleFonts.lato().fontFamily,
         // brightness: Brightness.dark,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyText1: TextStyle(color: Colors.white),
         ),
       ),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const WelcomePage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) => const HomePage(),
+        '/scan': (context) => const ScanPage(),
+        '/list': (context) => const ListPage(),
+      },
     );
   }
 }

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Navbar extends StatefulWidget {
-  const Navbar({Key? key}) : super(key: key);
+class ConcordinoNavbar extends StatelessWidget {
+  const ConcordinoNavbar({Key? key}) : super(key: key);
 
-  @override
-  State<Navbar> createState() => _NavbarState();
-}
-
-class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -38,7 +33,25 @@ class _NavbarState extends State<Navbar> {
           backgroundColor: Colors.pink,
         ),
       ],
-      onTap: (int oui) {},
+      onTap: (index) {
+        switch (index) {
+          case 0:
+            Navigator.pushNamed(context, "/home");
+            break;
+          case 1:
+            Navigator.pushNamed(context, "/home");
+            break;
+          case 2:
+            Navigator.pushNamed(context, "/scan");
+            break;
+          case 3:
+            Navigator.pushNamed(context, "/home");
+            break;
+          case 4:
+            Navigator.pushNamed(context, "/list");
+            break;
+        }
+      },
     );
   }
 }
