@@ -40,7 +40,7 @@ class CommunityPage extends StatelessWidget {
             ],
           ),
         ),
-      bottomNavigationBar: const ConcordinoNavbar(),
+        bottomNavigationBar: const ConcordinoNavbar(),
       ),
     );
   }

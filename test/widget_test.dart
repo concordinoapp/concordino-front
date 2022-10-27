@@ -5,7 +5,6 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-
 import 'package:concordino_front/main.dart';
 import 'package:concordino_front/screens/views/welcome_view.dart';
 import 'package:flutter/material.dart';
