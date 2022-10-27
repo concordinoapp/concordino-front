@@ -1,4 +1,8 @@
+import 'package:concordino_front/screens/views/home_view.dart';
+import 'package:concordino_front/screens/views/list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:concordino_front/screens/views/scan_view.dart';
+import 'package:camera/camera.dart';
 
 class ConcordinoNavbar extends StatelessWidget {
   const ConcordinoNavbar({Key? key}) : super(key: key);
@@ -35,20 +39,39 @@ class ConcordinoNavbar extends StatelessWidget {
       ],
       onTap: (index) async {
         switch (index) {
-          case 0:
-            Navigator.pushNamed(context, "/home");
-            break;
           case 1:
-            Navigator.pushNamed(context, "/home");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const HomePage(),
+              ),
+            );
             break;
           case 2:
-            Navigator.pushNamed(context, "/scan");
+            await availableCameras().then(
+              (cameras) => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ScanPage(cameras: cameras[0]),
+                ),
+              ),
+            );
             break;
           case 3:
-            Navigator.pushNamed(context, "/home");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const HomePage(),
+              ),
+            );
             break;
           case 4:
-            Navigator.pushNamed(context, "/list");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ListPage(),
+              ),
+            );
             break;
         }
       },
