@@ -27,8 +27,7 @@ class OutlinedCustom extends StatelessWidget {
             Navigator.pushNamed(context, route);
           },
           style: OutlinedButton.styleFrom(
-            minimumSize: const Size(300, 50),
-            primary: textColor,
+            foregroundColor: textColor, minimumSize: const Size(300, 50),
             side: BorderSide(color: borderColor, width: 1),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(11))),

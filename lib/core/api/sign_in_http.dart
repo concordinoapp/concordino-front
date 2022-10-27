@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
-import '../model/user_model.dart';
 
 Future<void> loginHttp(Map<String, dynamic> arguments) async {
   var url = Uri.https('www.googleapis.com', '/user/create');

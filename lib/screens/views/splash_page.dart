@@ -24,6 +24,7 @@ class _SplashConcordinoState extends State<SplashConcordino> {
 
   void initialization() async {
     TokenAuth tokenAuth = TokenAuth();
+
     if (await tokenAuth.isTokenSet()) {
       user.setProfilToken(await tokenAuth.getToken());
       log(user.getProfilToken!);

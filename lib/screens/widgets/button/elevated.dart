@@ -29,9 +29,7 @@ class ElevatedCustom extends StatelessWidget {
             Navigator.pushNamed(context, route);
           },
           style: ElevatedButton.styleFrom(
-            minimumSize: const Size(300, 50),
-            primary: backgroundColor,
-            onPrimary: textColor,
+            foregroundColor: textColor, minimumSize: const Size(300, 50), backgroundColor: backgroundColor,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(11))),
           ),
