@@ -1,7 +1,9 @@
+import 'package:concordino_front/screens/views/community_view.dart';
 import 'package:concordino_front/screens/views/welcome_view.dart';
 import 'package:concordino_front/screens/views/login_view.dart';
 import 'package:concordino_front/screens/views/register_view.dart';
 import 'package:concordino_front/screens/views/home_view.dart';
+import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:concordino_front/screens/views/list_view.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Concordino',
+      // debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // fontFamily: GoogleFonts.lato().fontFamily,
         // brightness: Brightness.dark,
@@ -24,15 +27,18 @@ class MyApp extends StatelessWidget {
           bodyText1: TextStyle(color: Colors.white),
         ),
       ),
-      initialRoute: '/',
+      home: const HomePage(),
       routes: {
-        '/': (context) => const WelcomePage(),
+        '/welcome': (context) => const WelcomePage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/home': (context) => const HomePage(),
+        '/search': (context) => const SearchPage(),
         '/scan': (context) => const ScanPage(),
         '/list': (context) => const ListPage(),
+        '/community': (context) => const CommunityPage(),
       },
+      initialRoute: '/welcome',
     );
   }
 }
