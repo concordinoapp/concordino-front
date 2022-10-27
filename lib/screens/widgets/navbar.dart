@@ -60,15 +60,21 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
       ],
       onTap: (index) async {
         switch (index) {
-          case 1:
+          case 0:
+            setState(() {
+              pageIndex = index;
+            });
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => const HomePage(),
+                builder: (_) => const CommunityPage(),
               ),
             );
             break;
-          case 2:
+          case 1:
+            setState(() {
+              pageIndex = index;
+            });
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -76,7 +82,10 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
               ),
             );
             break;
-          case 3:
+          case 2:
+            setState(() {
+              pageIndex = index;
+            });
             await availableCameras().then(
               (cameras) => Navigator.push(
                 context,
@@ -86,7 +95,10 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
               ),
             );
             break;
-          case 4:
+          case 3:
+            setState(() {
+              pageIndex = index;
+            });
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -94,7 +106,10 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
               ),
             );
             break;
-          case 5:
+          case 4:
+            setState(() {
+              pageIndex = index;
+            });
             Navigator.push(
               context,
               MaterialPageRoute(
