@@ -4,16 +4,22 @@ import 'package:concordino_front/screens/views/login_view.dart';
 import 'package:concordino_front/screens/views/register_view.dart';
 import 'package:concordino_front/screens/views/home_view.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
-import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:concordino_front/screens/views/list_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterPage(),
         '/home': (context) => const HomePage(),
         '/search': (context) => const SearchPage(),
-        '/scan': (context) => const ScanPage(),
+        // '/scan': (context) => const ScanPage(),
         '/list': (context) => const ListPage(),
         '/community': (context) => const CommunityPage(),
       },

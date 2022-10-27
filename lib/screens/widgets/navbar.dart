@@ -1,9 +1,10 @@
+import 'package:concordino_front/screens/views/home_view.dart';
+import 'package:concordino_front/screens/views/list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:concordino_front/screens/views/community_view.dart';
-import 'package:concordino_front/screens/views/home_view.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
-import 'package:concordino_front/screens/views/list_view.dart';
+import 'package:camera/camera.dart';
 
 class ConcordinoNavbar extends StatefulWidget {
   const ConcordinoNavbar({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
   final pages = [
     const HomePage(),
     const SearchPage(),
-    const ScanPage(),
+    // const ScanPage(),
     const ListPage(),
     const CommunityPage(),
   ];
@@ -57,37 +58,49 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
           backgroundColor: Color.fromARGB(255, 131, 4, 11),
         ),
       ],
-      onTap: (index) {
+      onTap: (index) async {
         switch (index) {
-          case 0:
-            Navigator.pushReplacementNamed(context, "/home");
-            setState(() {
-              pageIndex = index;
-            });
-            break;
           case 1:
-            Navigator.pushReplacementNamed(context, "/home");
-            setState(() {
-              pageIndex = index;
-            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const HomePage(),
+              ),
+            );
             break;
           case 2:
-            Navigator.pushReplacementNamed(context, "/scan");
-            setState(() {
-              pageIndex = index;
-            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const SearchPage(),
+              ),
+            );
             break;
           case 3:
-            Navigator.pushReplacementNamed(context, "/home");
-            setState(() {
-              pageIndex = index;
-            });
+            await availableCameras().then(
+              (cameras) => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ScanPage(cameras: cameras[0]),
+                ),
+              ),
+            );
             break;
           case 4:
-            Navigator.pushReplacementNamed(context, "/list");
-            setState(() {
-              pageIndex = index;
-            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const HomePage(),
+              ),
+            );
+            break;
+          case 5:
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ListPage(),
+              ),
+            );
             break;
         }
       },
