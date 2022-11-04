@@ -90,7 +90,12 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   crossAxisCount: 2,
-                  children: const [CardCave(), CardCave(), CardCave(), CardCave()],
+                  children: const [
+                    CardCave(),
+                    CardCave(),
+                    CardCave(),
+                    CardCave()
+                  ],
                 ),
               ),
             ],

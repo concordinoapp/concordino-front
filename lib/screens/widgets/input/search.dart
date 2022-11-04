@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InputCustom extends StatelessWidget {
-  const InputCustom(
+class InputSearchCustom extends StatelessWidget {
+  const InputSearchCustom(
       {Key? key, required this.content, required this.backgroundColor})
       : super(key: key);
   final String content;
@@ -35,6 +35,11 @@ class InputCustom extends StatelessWidget {
               filled: true,
               fillColor: backgroundColor,
               hintText: content,
+              suffixIcon: IconButton(
+                onPressed: () {},
+                color: const Color.fromARGB(255, 107, 23, 81),
+                icon: const Icon(Icons.search),
+              ),
             ),
           ),
         ),

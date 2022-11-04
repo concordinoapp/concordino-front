@@ -51,7 +51,7 @@ class ListPage extends StatelessWidget {
                       "A",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(196,196,196,196),
+                          color: Color.fromARGB(196, 196, 196, 196),
                           fontSize: 25),
                     ),
                     CustomPaint(
@@ -132,7 +132,7 @@ class ListPage extends StatelessWidget {
                       "P",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(196,196,196,196),
+                          color: Color.fromARGB(196, 196, 196, 196),
                           fontSize: 25),
                     ),
                     CustomPaint(
