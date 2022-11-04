@@ -45,7 +45,7 @@ class SearchPage extends StatelessWidget {
             ],
           ),
         ),
-      bottomNavigationBar: const ConcordinoNavbar(),
+        bottomNavigationBar: const ConcordinoNavbar(),
       ),
     );
   }

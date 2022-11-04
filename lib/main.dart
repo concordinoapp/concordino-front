@@ -5,11 +5,20 @@ import 'package:concordino_front/screens/views/register_view.dart';
 import 'package:concordino_front/screens/views/home_view.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/views/list_view.dart';
-import 'package:flutter/material.dart';
+import 'package:concordino_front/screens/views/splash_page.dart';
+import 'package:concordino_front/core/provider/user_provider.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:provider/provider.dart';
+
+void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => UserProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -20,7 +29,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,9 +41,10 @@ class _MyAppState extends State<MyApp> {
           bodyText1: TextStyle(color: Colors.white),
         ),
       ),
-      home: const HomePage(),
+      initialRoute: '/splash',
       routes: {
-        '/welcome': (context) => const WelcomePage(),
+        '/': (context) => const WelcomePage(),
+        '/splash': (context) => const SplashConcordino(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/home': (context) => const HomePage(),
@@ -44,7 +53,6 @@ class _MyAppState extends State<MyApp> {
         '/list': (context) => const ListPage(),
         '/community': (context) => const CommunityPage(),
       },
-      initialRoute: '/welcome',
     );
   }
 }
