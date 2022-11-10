@@ -37,7 +37,7 @@ class _ScanPageState extends State<ScanPage> {
     super.initState();
     _controller = CameraController(
       widget.cameras,
-      ResolutionPreset.medium,
+      ResolutionPreset.high,
     );
 
     // Next, initialize the controller. This returns a Future.
@@ -88,41 +88,49 @@ class _ScanPageState extends State<ScanPage> {
           future: _initializeControllerFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              // If the Future is complete, display the preview.
               return CameraPreview(_controller);
             } else {
-              // Otherwise, display a loading indicator.
               return const Center(child: CircularProgressIndicator());
             }
           },
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () async {
-        //     try {
-        //       await _initializeControllerFuture;
+        floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 108, 0, 108),
+        child: Container(
+          height: 70,
+          width: 70,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(50)),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
+                spreadRadius: 3,
+                blurRadius: 3,
+                offset: const Offset(0, 0.5),
+              ),
+            ],
+          ),
+          child: const Icon(Icons.camera_alt),
+        ),
+        
+        onPressed: () async {
+          try {
+            await _initializeControllerFuture;
 
-        // final image = await _controller.takePicture();
-        // context.read<BikeDataProvider>().setImage(image);
+            final image = await _controller.takePicture();
+            // context.read<BikeDataProvider>().setImage(image);
 
-        //       if (!mounted) return;
+            if (!mounted) return;
 
-        // _close();
-
-        // If the picture was taken, display it on a new screen.
-
-        // await Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (context) => DisplayPictureScreen(
-        //       imagePath: image.path,
-        //     ),
-        //   ),
-        // );
-        //     } catch (e) {
-        //       print(e);
-        //     }
-        //   },
-        // ),
+            // _close();
+          } catch (e) {
+            print(e);
+          }
+        },
+      ),
         bottomNavigationBar: const ConcordinoNavbar(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
       ),
     );
   }
