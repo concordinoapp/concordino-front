@@ -95,42 +95,41 @@ class _ScanPageState extends State<ScanPage> {
           },
         ),
         floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 108, 0, 108),
-        child: Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(50)),
-            boxShadow: [
-              BoxShadow(
-                color: const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
-                spreadRadius: 3,
-                blurRadius: 3,
-                offset: const Offset(0, 0.5),
-              ),
-            ],
+          backgroundColor: const Color.fromARGB(255, 108, 0, 108),
+          child: Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              boxShadow: [
+                BoxShadow(
+                  color:
+                      const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
+                  spreadRadius: 3,
+                  blurRadius: 3,
+                  offset: const Offset(0, 0.5),
+                ),
+              ],
+            ),
+            child: const Icon(Icons.camera_alt),
           ),
-          child: const Icon(Icons.camera_alt),
+          onPressed: () async {
+            // try {
+            //   await _initializeControllerFuture;
+
+            //   final image = await _controller.takePicture();
+            //   context.read<BikeDataProvider>().setImage(image);
+
+            //   if (!mounted) return;
+
+            //   _close();
+            // } catch (e) {
+            //   print(e);
+            // }
+          },
         ),
-        
-        onPressed: () async {
-          try {
-            await _initializeControllerFuture;
-
-            final image = await _controller.takePicture();
-            // context.read<BikeDataProvider>().setImage(image);
-
-            if (!mounted) return;
-
-            // _close();
-          } catch (e) {
-            print(e);
-          }
-        },
-      ),
         bottomNavigationBar: const ConcordinoNavbar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-
       ),
     );
   }
