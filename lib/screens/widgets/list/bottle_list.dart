@@ -13,49 +13,47 @@ class BottleList extends StatefulWidget {
 class _BottleListState extends State<BottleList> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        itemCount: widget.bottles.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-              title: Text(
-                widget.bottles[index].name,
-                textAlign: TextAlign.start,
-              ),
-              subtitle: Row(
+    return ListView.builder(
+      itemCount: widget.bottles.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+            title: Text(
+              widget.bottles[index].name,
+              textAlign: TextAlign.start,
+            ),
+            subtitle: Row(
+              children: [
+                const Icon(Icons.wine_bar),
+                Text(widget.bottles[index].quantity.toString()),
+              ],
+            ),
+            leading: Image.network(
+              widget.bottles[index].image,
+            ),
+            trailing: SizedBox(
+              width: 100,
+              child: Row(
                 children: [
-                  Icon(Icons.wine_bar),
-                  Text(widget.bottles[index].quantity.toString()),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        widget.bottles[index].decreaseBottle();
+                      });
+                    },
+                    icon: const Icon(Icons.remove),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        widget.bottles[index].addBottle();
+                      });
+                    },
+                    icon: const Icon(Icons.add),
+                  ),
                 ],
               ),
-              leading: Image.network(
-                widget.bottles[index].image,
-              ),
-              trailing: SizedBox(
-                width: 100,
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.bottles[index].decreaseBottle();
-                        });
-                      },
-                      icon: const Icon(Icons.remove),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.bottles[index].addBottle();
-                        });
-                      },
-                      icon: const Icon(Icons.add),
-                    ),
-                  ],
-                ),
-              ));
-        },
-      ),
+            ));
+      },
     );
   }
 }

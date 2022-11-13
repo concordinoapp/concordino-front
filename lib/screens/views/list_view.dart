@@ -1,5 +1,4 @@
 import 'package:concordino_front/screens/widgets/list/bottle_list.dart';
-import 'package:concordino_front/screens/widgets/shapes/line.dart';
 import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,33 +9,22 @@ class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: const BoxDecoration(
-      //     gradient: LinearGradient(
-      //         begin: Alignment.topLeft,
-      //         end: Alignment.bottomRight,
-      //         colors: [
-      //       Color.fromARGB(255, 107, 23, 81),
-      //       Color.fromARGB(230, 107, 23, 81),
-      //       Color.fromARGB(250, 8, 7, 8),
-      //     ])),
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(255, 107, 7, 8),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(255, 107, 7, 8),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.person),
         ),
-        body: BottleList(
-          bottles: list,
-        ),
-        bottomNavigationBar: const ConcordinoNavbar(),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+        ],
       ),
+      body: BottleList(
+        bottles: list,
+      ),
+      bottomNavigationBar: const ConcordinoNavbar(),
     );
   }
 }
