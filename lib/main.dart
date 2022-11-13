@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
         '/home': (context) => const HomePage(),
         '/search': (context) => const SearchPage(),
         // '/scan': (context) => const ScanPage(),
-        '/list': (context) => const ListPage(),
+        '/list': (context) => ListPage(),
         '/community': (context) => const CommunityPage(),
       },
     );

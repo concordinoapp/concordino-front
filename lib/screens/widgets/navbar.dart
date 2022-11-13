@@ -20,7 +20,7 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
     const HomePage(),
     const SearchPage(),
     // const ScanPage(),
-    const ListPage(),
+    ListPage(),
     const CommunityPage(),
   ];
 
@@ -113,7 +113,7 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => const ListPage(),
+                builder: (_) => ListPage(),
               ),
             );
             break;

@@ -2,6 +2,8 @@ import 'package:concordino_front/core/model/bottle_model.dart';
 
 import 'package:flutter/material.dart';
 
+import 'add_remove_bottle_buttons.dart';
+
 class BottleList extends StatefulWidget {
   final List<Bottle> bottles;
   const BottleList({super.key, required this.bottles});
@@ -11,6 +13,18 @@ class BottleList extends StatefulWidget {
 }
 
 class _BottleListState extends State<BottleList> {
+  void removeBottleButtonFonction(Bottle bottle) {
+    setState(() {
+      bottle.decreaseBottle();
+    });
+  }
+
+  void addBottleButtonFonction(Bottle bottle) {
+    setState(() {
+      bottle.addBottle();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -32,26 +46,10 @@ class _BottleListState extends State<BottleList> {
             ),
             trailing: SizedBox(
               width: 100,
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        widget.bottles[index].decreaseBottle();
-                      });
-                    },
-                    icon: const Icon(Icons.remove),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        widget.bottles[index].addBottle();
-                      });
-                    },
-                    icon: const Icon(Icons.add),
-                  ),
-                ],
-              ),
+              child: AddRemoveBottleButtons(
+                  bottle: widget.bottles[index],
+                  addBottle: addBottleButtonFonction,
+                  removeBottle: removeBottleButtonFonction),
             ));
       },
     );
