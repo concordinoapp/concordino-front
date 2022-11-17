@@ -25,7 +25,7 @@ class ListPage extends StatelessWidget {
             textController: textController,
             onSuffixTap: () {},
             color: const Color.fromARGB(255, 107, 7, 8),
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
           IconButton(
               onPressed: () {}, icon: const Icon(Icons.more_vert_outlined)),
