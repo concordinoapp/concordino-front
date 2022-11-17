@@ -1,5 +1,6 @@
 import 'package:concordino_front/screens/views/home_view.dart';
 import 'package:concordino_front/screens/views/list_view.dart';
+import 'package:concordino_front/screens/views/loading_view.dart';
 import 'package:flutter/material.dart';
 import 'package:concordino_front/screens/views/community_view.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
@@ -102,7 +103,7 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => const HomePage(),
+                builder: (_) => const LoadingPage(),
               ),
             );
             break;

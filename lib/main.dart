@@ -1,4 +1,5 @@
 import 'package:concordino_front/screens/views/community_view.dart';
+import 'package:concordino_front/screens/views/loading_view.dart';
 import 'package:concordino_front/screens/views/welcome_view.dart';
 import 'package:concordino_front/screens/views/login_view.dart';
 import 'package:concordino_front/screens/views/register_view.dart';
@@ -52,6 +53,7 @@ class _MyAppState extends State<MyApp> {
         // '/scan': (context) => const ScanPage(),
         '/list': (context) => const ListPage(),
         '/community': (context) => const CommunityPage(),
+        '/loading': (context) => const LoadingPage(),
       },
     );
   }
