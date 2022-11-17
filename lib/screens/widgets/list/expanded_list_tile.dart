@@ -12,14 +12,10 @@ class ExpandedListTile extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: Container(
-              child: Text(bottle.name),
-            ),
+            child: Text(bottle.name),
           ),
           Expanded(
-            child: Container(
-              child: Text(bottle.quantity.toString()),
-            ),
+            child: Text(bottle.quantity.toString()),
           ),
         ],
       ),
