@@ -5,13 +5,13 @@ class ElevatedCustom extends StatelessWidget {
       {Key? key,
       required this.content,
       required this.textColor,
-      required this.backgroundColor,
+      this.backgroundColor,
       required this.route})
       : super(key: key);
   final String content;
   final String route;
   final Color textColor;
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   // Use button on view :
   // const ElevatedCustom(content: "Connexion", textColor: Color.fromARGB(255, 107, 23, 81), backgroundColor: Color.fromARGB(249, 249, 249, 249),),
@@ -31,7 +31,7 @@ class ElevatedCustom extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             foregroundColor: textColor,
             minimumSize: const Size(300, 50),
-            backgroundColor: backgroundColor,
+            backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.background,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(11))),
           ),

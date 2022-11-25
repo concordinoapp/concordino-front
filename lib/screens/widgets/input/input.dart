@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class InputCustom extends StatelessWidget {
   const InputCustom(
-      {Key? key, required this.content, required this.backgroundColor})
+      {Key? key, required this.content, this.backgroundColor})
       : super(key: key);
   final String content;
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   // Use button on view :
   // const InputCustom(content: "E-mail", backgroundColor: Color.fromARGB(249, 249, 249, 249),),
@@ -22,15 +22,13 @@ class InputCustom extends StatelessWidget {
           height: 55,
           width: 300,
           child: TextField(
+            style: const TextStyle(color: Colors.brown),
             decoration: InputDecoration(
+              hintStyle: const TextStyle(color: Colors.redAccent),
               contentPadding: const EdgeInsets.all(20.0),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(11),
-                borderSide: BorderSide(width: 0, color: backgroundColor),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(11),
-                borderSide: BorderSide(width: 0, color: backgroundColor),
+                borderSide: BorderSide(width: 0, color: backgroundColor ?? Theme.of(context).colorScheme.background),
               ),
               filled: true,
               fillColor: backgroundColor,

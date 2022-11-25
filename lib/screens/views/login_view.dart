@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
                 "Connexion",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    // color: Colors.white,
                     fontSize: 25),
               ),
               const InputCustom(

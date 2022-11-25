@@ -9,16 +9,16 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: backgroundGradientDarkTheme)),
+      // decoration: const BoxDecoration(
+      //     gradient: LinearGradient(
+      //         begin: Alignment.topLeft,
+      //         end: Alignment.bottomRight,
+      //         colors: backgroundGradientDarkTheme)),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+          // backgroundColor: const Color.fromARGB(0, 0, 0, 0),
         ),
         body: Center(
           child: Column(

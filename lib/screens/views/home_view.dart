@@ -17,10 +17,10 @@ class HomePage extends StatelessWidget {
         colors: backgroundGradientDarkTheme,
       )),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+          // backgroundColor: const Color.fromARGB(0, 0, 0, 0),
           leading: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.person),

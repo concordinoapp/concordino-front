@@ -14,7 +14,7 @@ class ListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color.fromARGB(255, 107, 7, 8),
+        // backgroundColor: const Color.fromARGB(255, 107, 7, 8),
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.person),
