@@ -101,10 +101,10 @@ class AppThemeData {
       // TODO VOIR POUR SELECTIONNER LA POLICE SECONDAIRE
       // caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0), 
       // headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-      subtitle1: TextStyle(fontSize: 16.0, fontWeight: FontWeight.medium),
-      overline: TextStyle(fontSize: 12.0, fontWeight: FontWeight.medium),
-      bodyText1: TextStyle(fontSize: 14.0, fontStyle: FontStyle.regular),
-      subtitle2: TextStyle(fontSize: 14.0, fontWeight: FontWeight.medium),
-      button: TextStyle(fontSize: 14.0, fontWeight: FontWeight.semiBold),
+      // subtitle1: TextStyle(fontSize: 16.0, fontWeight: FontWeight.medium),
+      // overline: TextStyle(fontSize: 12.0, fontWeight: FontWeight.medium),
+      // bodyText1: TextStyle(fontSize: 14.0, fontStyle: FontStyle.regular),
+      // subtitle2: TextStyle(fontSize: 14.0, fontWeight: FontWeight.medium),
+      // button: TextStyle(fontSize: 14.0, fontWeight: FontWeight.semiBold),
       );
 }
