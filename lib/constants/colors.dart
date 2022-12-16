@@ -5,5 +5,5 @@ const Color redDarkTheme = Color.fromARGB(250, 8, 7, 8);
 
 const List<Color> backgroundGradientDarkTheme = [
   Color.fromARGB(255, 255, 255, 255),
-  Color.fromARGB(255, 214, 214, 214),
+  Color.fromARGB(255, 255, 255, 255),
 ];
