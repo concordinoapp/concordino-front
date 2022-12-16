@@ -15,20 +15,9 @@ class SearchPage extends StatelessWidget {
         end: Alignment.bottomRight,
         colors: backgroundGradientDarkTheme,
       )),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-          ],
-        ),
-        body: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
           child: Column(
             children: const [
               Text(
@@ -45,7 +34,6 @@ class SearchPage extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const ConcordinoNavbar(),
       ),
     );
   }

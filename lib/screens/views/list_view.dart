@@ -11,30 +11,8 @@ class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color.fromARGB(255, 107, 7, 8),
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.person),
-        ),
-        actions: [
-          AnimSearchBar(
-            width: 200,
-            textController: textController,
-            onSuffixTap: () {},
-            color: const Color.fromARGB(255, 107, 7, 8),
-            style: const TextStyle(color: Colors.white),
-          ),
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.more_vert_outlined)),
-        ],
-      ),
-      body: BottleList(
-        bottles: list,
-      ),
-      bottomNavigationBar: const ConcordinoNavbar(),
+    return BottleList(
+      bottles: list,
     );
   }
 }

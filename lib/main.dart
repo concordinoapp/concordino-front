@@ -1,4 +1,5 @@
 import 'package:concordino_front/screens/views/community_view.dart';
+import 'package:concordino_front/screens/views/main_page.dart';
 import 'package:concordino_front/screens/views/welcome_view.dart';
 import 'package:concordino_front/screens/views/login_view.dart';
 import 'package:concordino_front/screens/views/register_view.dart';
@@ -14,7 +15,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => UserProvider()),
@@ -33,19 +34,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Concordino',
-      // debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // fontFamily: GoogleFonts.lato().fontFamily,
-        // brightness: Brightness.dark,
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.white),
-        ),
-      ),
-      initialRoute: '/splash',
+      home: MainPage(),
+      // initialRoute: '/splash',
       routes: {
-        '/': (context) => const WelcomePage(),
+        '/main': (context) => const MainPage(),
+        // '/': (context) => const WelcomePage(),
         '/splash': (context) => const SplashConcordino(),
-        '/login': (context) => const LoginPage(),
+        // '/': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/home': (context) => const HomePage(),
         '/search': (context) => const SearchPage(),

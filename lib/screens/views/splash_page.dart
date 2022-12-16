@@ -29,7 +29,7 @@ class _SplashConcordinoState extends State<SplashConcordino> {
       user.setProfilToken(await tokenAuth.getToken());
       log(user.getProfilToken!);
       // ignore: use_build_context_synchronously
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/main');
     } else {
       Navigator.pushReplacementNamed(context, '/');
     }

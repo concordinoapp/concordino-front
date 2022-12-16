@@ -45,10 +45,6 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   @override
-  // void dispose() {
-  //   _cameraController!.dispose();
-  //   super.dispose();
-  // }
   void dispose() {
     // Dispose of the controller when the widget is disposed.
     _controller.dispose();
@@ -67,62 +63,17 @@ class _ScanPageState extends State<ScanPage> {
             Color.fromARGB(230, 107, 23, 81),
             Color.fromARGB(250, 8, 7, 8),
           ])),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-          ],
-        ),
-        // body: SafeArea(
-        //     child: _cameraController!.value.isInitialized
-        //         ? CameraPreview(_cameraController!)
-        //         : const Center(child: CircularProgressIndicator())),
-        body: FutureBuilder<void>(
-          future: _initializeControllerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              // If the Future is complete, display the preview.
-              return CameraPreview(_controller);
-            } else {
-              // Otherwise, display a loading indicator.
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () async {
-        //     try {
-        //       await _initializeControllerFuture;
-
-        // final image = await _controller.takePicture();
-        // context.read<BikeDataProvider>().setImage(image);
-
-        //       if (!mounted) return;
-
-        // _close();
-
-        // If the picture was taken, display it on a new screen.
-
-        // await Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (context) => DisplayPictureScreen(
-        //       imagePath: image.path,
-        //     ),
-        //   ),
-        // );
-        //     } catch (e) {
-        //       print(e);
-        //     }
-        //   },
-        // ),
-        bottomNavigationBar: const ConcordinoNavbar(),
+      child: FutureBuilder<void>(
+        future: _initializeControllerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            // If the Future is complete, display the preview.
+            return CameraPreview(_controller);
+          } else {
+            // Otherwise, display a loading indicator.
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }
