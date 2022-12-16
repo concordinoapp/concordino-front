@@ -1,4 +1,4 @@
-import 'package:concordino_front/screens/widgets/navbar.dart';
+import 'package:concordino_front/screens/views/bottle_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
@@ -13,9 +13,8 @@ class ScanPage extends StatefulWidget {
 class _ScanPageState extends State<ScanPage> {
   late CameraController _controller;
   late Future<void> _initializeControllerFuture;
-  
+
   @override
-  
   void initState() {
     super.initState();
     _controller = CameraController(
@@ -68,10 +67,10 @@ class _ScanPageState extends State<ScanPage> {
             child: const Icon(Icons.camera_alt),
           ),
           onPressed: () async {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => const BotlleDescription()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const bottleInfoView()),
+            );
           },
         ),
         // bottomNavigationBar: const ConcordinoNavbar(),

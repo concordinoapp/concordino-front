@@ -1,6 +1,5 @@
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/screens/widgets/input/search.dart';
-import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {

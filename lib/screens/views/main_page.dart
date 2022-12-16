@@ -44,20 +44,20 @@ class _MainPageState extends State<MainPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await availableCameras().then(
-              (cameras) => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => ScanPage(cameras: cameras[0]),
-                ),
+            (cameras) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ScanPage(cameras: cameras[0]),
               ),
-            );
+            ),
+          );
         },
+        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
         child: const Icon(Icons.camera_alt),
-        backgroundColor: Color.fromARGB(255, 131, 4, 11),
       ),
       appBar: AppBar(
         title: Text(_titles[_currentIndex]),
-        backgroundColor: Color.fromARGB(255, 131, 4, 11),
+        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
       ),
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -67,24 +67,28 @@ class _MainPageState extends State<MainPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            activeIcon:
-                Icon(Icons.search, color: Color.fromARGB(255, 131, 4, 11)),
-            label: '_',
+            // activeIcon:
+            //     Icon(Icons.search, color: Color.fromARGB(255, 131, 4, 11)),
+            activeIcon: Icon(Icons.search,
+            color: Color.fromARGB(255, 131, 4, 11), size: 35,),
+            label: '',
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
-            label: '_',
+            label: '',
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
-            activeIcon:
-                Icon(Icons.inventory, color: Color.fromARGB(255, 131, 4, 11)),
+            // activeIcon:
+            //     Icon(Icons.inventory, color: Color.fromARGB(255, 131, 4, 11)),
+            activeIcon: Icon(Icons.inventory,
+            color: Color.fromARGB(255, 131, 4, 11), size: 35,),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.receipt_long),
-            label: '_',
+            label: '',
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
             activeIcon: Icon(Icons.receipt_long,
-                color: Color.fromARGB(255, 131, 4, 11)),
+            color: Color.fromARGB(255, 131, 4, 11), size: 35,),
           ),
         ],
       ),

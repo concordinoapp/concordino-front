@@ -1,9 +1,7 @@
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
 import 'package:concordino_front/screens/widgets/card_stat.dart';
-import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,6 +1,4 @@
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:concordino_front/screens/widgets/list/bottle_list.dart';
-import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/model/bottle_model.dart';
