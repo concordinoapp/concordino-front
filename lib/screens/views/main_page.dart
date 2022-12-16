@@ -1,6 +1,8 @@
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:concordino_front/screens/views/scan_view.dart';
+import 'package:camera/camera.dart';
 
 import 'home_view.dart';
 import 'list_view.dart';
@@ -40,8 +42,15 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _openGallery();
+        onPressed: () async {
+          await availableCameras().then(
+              (cameras) => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ScanPage(cameras: cameras[0]),
+                ),
+              ),
+            );
         },
         child: const Icon(Icons.camera_alt),
         backgroundColor: Color.fromARGB(255, 131, 4, 11),
