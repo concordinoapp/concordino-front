@@ -20,76 +20,78 @@ class _HomePageState extends State<HomePage> {
         end: Alignment.bottomRight,
         colors: backgroundGradientDarkTheme,
       )),
-      child: Center(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Mes Bouteilles :",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Mes Bouteilles :",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.black),
                   ),
-                  onPressed: () {},
-                  child: const Text('VOIR TOUT'),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 70,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: const [
-                  CardStat(),
-                  CardStat(),
-                  CardStat(),
-                  CardStat(),
-                  CardStat(),
-                  CardStat(),
-                  CardStat(),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 10),
+                    ),
+                    onPressed: () {},
+                    child: const Text('VOIR TOUT'),
+                  ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Mes Caves :",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
+              SizedBox(
+                height: 70,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    CardStat(),
+                    CardStat(),
+                    CardStat(),
+                    CardStat(),
+                    CardStat(),
+                    CardStat(),
+                  ],
                 ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 10),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Mes Caves :",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.black),
                   ),
-                  onPressed: () {},
-                  child: const Text('VOIR TOUT'),
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
-              child: GridView.count(
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: 0.9,
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                children: const [
-                  CardCave(),
-                  CardCave(),
-                  CardCave(),
-                  CardCave()
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 10),
+                    ),
+                    onPressed: () {},
+                    child: const Text('VOIR TOUT'),
+                  ),
                 ],
               ),
-            ),
-          ],
+              Container(
+                margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
+                child: GridView.count(
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 0.9,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  children: const [
+                    CardCave(),
+                    CardCave(),
+                    CardCave(),
+                    CardCave()
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
