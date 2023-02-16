@@ -15,7 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
 
   final pages = [
     const SearchPage(),
@@ -67,8 +67,6 @@ class _MainPageState extends State<MainPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            // activeIcon:
-            //     Icon(Icons.search, color: Color.fromARGB(255, 131, 4, 11)),
             activeIcon: Icon(
               Icons.search,
               color: Color.fromARGB(255, 131, 4, 11),
@@ -81,8 +79,6 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.inventory),
             label: '',
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
-            // activeIcon:
-            //     Icon(Icons.inventory, color: Color.fromARGB(255, 131, 4, 11)),
             activeIcon: Icon(
               Icons.inventory,
               color: Color.fromARGB(255, 131, 4, 11),

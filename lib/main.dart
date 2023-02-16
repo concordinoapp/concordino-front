@@ -32,11 +32,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Concordino',
-      home: const MainPage(),
-      // initialRoute: '/splash',
+      // home: const WelcomePage(),
+      initialRoute: '/splash',
       routes: {
         '/main': (context) => const MainPage(),
-        '/welcome': (context) => const WelcomePage(),
+        '/': (context) => const WelcomePage(),
         '/splash': (context) => const SplashConcordino(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
