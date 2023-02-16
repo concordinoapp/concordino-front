@@ -33,49 +33,47 @@ class _ScanPageState extends State<ScanPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: FutureBuilder<void>(
-          future: _initializeControllerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return CameraPreview(_controller);
-            } else {
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          foregroundColor: Colors.black,
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-          child: Container(
-            height: 80,
-            width: 100,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
-                  spreadRadius: 3,
-                  blurRadius: 3,
-                  offset: const Offset(0, 0.5),
-                ),
-              ],
-            ),
-            child: const Icon(Icons.camera_alt),
-          ),
-          onPressed: () async {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const BottleInfoView()),
-            );
-          },
-        ),
-        // bottomNavigationBar: const ConcordinoNavbar(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: FutureBuilder<void>(
+        future: _initializeControllerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return CameraPreview(_controller);
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
+      floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        child: Container(
+          height: 80,
+          width: 100,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(50)),
+            boxShadow: [
+              BoxShadow(
+                color:
+                    const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
+                spreadRadius: 3,
+                blurRadius: 3,
+                offset: const Offset(0, 0.5),
+              ),
+            ],
+          ),
+          child: const Icon(Icons.camera_alt),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const BottleInfoView()),
+          );
+        },
+      ),
+      // bottomNavigationBar: const ConcordinoNavbar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

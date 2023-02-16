@@ -1,6 +1,6 @@
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:camera/camera.dart';
 
@@ -33,10 +33,10 @@ class _MainPageState extends State<MainPage> {
 
   XFile? imageFile;
 
-  _openGallery() async {
-    imageFile = await ImagePicker().pickImage(source: ImageSource.camera);
-    setState(() {});
-  }
+  // _openGallery() async {
+  //   imageFile = await ImagePicker().pickImage(source: ImageSource.camera);
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {

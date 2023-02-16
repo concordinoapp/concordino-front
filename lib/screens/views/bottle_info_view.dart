@@ -17,91 +17,89 @@ class _BottleInfoViewState extends State<BottleInfoView> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(15),
-          child: Container(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const SizedBox(),
-                      Positioned(
-                        child: Image.asset(
-                          'assets/images/wine_bottle.png',
-                          scale: 4,
-                        ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SizedBox(),
+                    Positioned(
+                      child: Image.asset(
+                        'assets/images/wine_bottle.png',
+                        scale: 4,
                       ),
-                      const SideInfo(),
-                    ],
-                  ),
-                  Column(
-                    children: const [
-                      Text("Jean-Baptiste Adam",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20)),
-                      Text("Riesling",
-                          style: TextStyle(
-                            fontSize: 20,
-                          )),
-                    ],
-                  ),
+                    ),
+                    const SideInfo(),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Text("Jean-Baptiste Adam",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20)),
+                    Text("Riesling",
+                        style: TextStyle(
+                          fontSize: 20,
+                        )),
+                  ],
+                ),
 
-                  const Divider(),
-                  // descriptions bouteilles
-                  FittedBox(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                const Divider(),
+                // descriptions bouteilles
+                FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      WineSpecificitiesRow(title: "Région", value: "Alsace"),
+                      WineSpecificitiesRow(
+                          title: "Sépage", value: "Chardonay"),
+                      WineSpecificitiesRow(title: "Couleur", value: "Rouge"),
+                      WineSpecificitiesRow(
+                          title: "Terroir", value: "Granitique"),
+                      WineSpecificitiesRow(title: "Année", value: "2021"),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 7.0,
+                          spreadRadius: 0.0,
+                          offset: Offset(2.0, 2.0),
+                        ),
+                      ],
+                      // color: Color.fromARGB(103, 131, 4, 10),
+                      border: Border.all(
+                          width: 1.2,
+                          color: const Color.fromARGB(255, 131, 4, 11)),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(18))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
                       children: const [
-                        WineSpecificitiesRow(title: "Région", value: "Alsace"),
-                        WineSpecificitiesRow(
-                            title: "Sépage", value: "Chardonay"),
-                        WineSpecificitiesRow(title: "Couleur", value: "Rouge"),
-                        WineSpecificitiesRow(
-                            title: "Terroir", value: "Granitique"),
-                        WineSpecificitiesRow(title: "Année", value: "2021"),
+                        BottleData(
+                          text: "arômes de fruits exotiques",
+                        ),
+                        BottleData(
+                          text: "Sec et frais",
+                        ),
+                        BottleData(
+                            text: "Base de poisson et de fruits de mer"),
+                        BottleData(
+                            text:
+                                "apéritif ou en accompagnement d'un repas léger"),
                       ],
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 7.0,
-                            spreadRadius: 0.0,
-                            offset: Offset(2.0, 2.0),
-                          ),
-                        ],
-                        // color: Color.fromARGB(103, 131, 4, 10),
-                        border: Border.all(
-                            width: 1.2,
-                            color: const Color.fromARGB(255, 131, 4, 11)),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(18))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: const [
-                          BottleData(
-                            text: "arômes de fruits exotiques",
-                          ),
-                          BottleData(
-                            text: "Sec et frais",
-                          ),
-                          BottleData(
-                              text: "Base de poisson et de fruits de mer"),
-                          BottleData(
-                              text:
-                                  "apéritif ou en accompagnement d'un repas léger"),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -203,7 +201,7 @@ class SideInfoElem extends StatelessWidget {
             icon,
             size: 20,
           ),
-          VerticalDivider(
+          const VerticalDivider(
             width: 3,
           ),
           Text(value)

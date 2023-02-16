@@ -12,7 +12,7 @@ class ConcordinoNavbar extends StatefulWidget {
 
 class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
   int _pageIndex = 0;
-  String _title = "Home";
+  // String _title = "Home";
 
   final pages = [
     const SearchPage(),
@@ -28,22 +28,22 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
       switch (index) {
         case 0:
           {
-            _title = 'Communauté';
+            // _title = 'Communauté';
           }
           break;
         case 1:
           {
-            _title = 'Timer';
+            // _title = 'Timer';
           }
           break;
         case 2:
           {
-            _title = 'Overview';
+            // _title = 'Overview';
           }
           break;
         case 3:
           {
-            _title = 'Clients';
+            // _title = 'Clients';
           }
           break;
       }
