@@ -26,12 +26,12 @@ class ElevatedCustom extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, route);
+            Navigator.pushReplacementNamed(context, route);
           },
           style: ElevatedButton.styleFrom(
+            foregroundColor: textColor,
             minimumSize: const Size(300, 50),
-            primary: backgroundColor,
-            onPrimary: textColor,
+            backgroundColor: backgroundColor,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(11))),
           ),

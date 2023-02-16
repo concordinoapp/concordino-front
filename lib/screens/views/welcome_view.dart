@@ -43,7 +43,7 @@ class WelcomePage extends StatelessWidget {
                           fontSize: 15),
                     ),
                     Text(
-                      "Votre cave à porter de main",
+                      "Votre cave à portée de main",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white.withOpacity(0.5),

@@ -1,194 +1,98 @@
-import 'package:concordino_front/screens/widgets/shapes/line.dart';
-import 'package:concordino_front/screens/widgets/navbar.dart';
+import 'package:concordino_front/screens/widgets/list/bottle_list.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/model/bottle_model.dart';
+
 class ListPage extends StatelessWidget {
-  const ListPage({Key? key}) : super(key: key);
+  ListPage({Key? key}) : super(key: key);
+  final TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-            Color.fromARGB(255, 107, 23, 81),
-            Color.fromARGB(230, 107, 23, 81),
-            Color.fromARGB(250, 8, 7, 8),
-          ])),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-          ],
-        ),
-        body: Container(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Text(
-                "Liste des vins",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 25),
-              ),
-              SizedBox(
-                height: 500,
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    const Text(
-                      "A",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(196, 196, 196, 196),
-                          fontSize: 25),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Alsace",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Alsace",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Alsace",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Alsace",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Alsace",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Text(
-                      "P",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(196, 196, 196, 196),
-                          fontSize: 25),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Pinot gris",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Pinot gris",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        "Pinot gris",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 25),
-                      ),
-                    ),
-                    CustomPaint(
-                      // size: const Size(300, 200),
-                      painter: LinePainter(),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: const ConcordinoNavbar(),
-      ),
+    return BottleList(
+      bottles: list,
     );
   }
 }
+
+List<Bottle> list = [
+  Bottle(
+    name: "Saint emilion",
+    quantity: 1,
+    image:
+        "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+    date: DateTime.now(),
+  ),
+  Bottle(
+      name: "Rouilly",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Fauconnerie",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Chateau lacours",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Dorle de dames",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Pinot noir ",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Gewurstraminer",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Chardonnay",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Vin Jaune",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Vin de paille",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "Chateau de la bilancourt",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "oouoiuoiuoiudsqoid",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+  Bottle(
+      name: "oouoiuoiuoiudsqoid",
+      quantity: 1,
+      image:
+          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
+      date: DateTime.now()),
+];

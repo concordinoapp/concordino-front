@@ -1,12 +1,16 @@
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
 import 'package:concordino_front/screens/widgets/card_stat.dart';
-import 'package:concordino_front/screens/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,20 +20,9 @@ class HomePage extends StatelessWidget {
         end: Alignment.bottomRight,
         colors: backgroundGradientDarkTheme,
       )),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-          ],
-        ),
-        body: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
           child: Column(
             children: [
               Row(
@@ -38,7 +31,7 @@ class HomePage extends StatelessWidget {
                   const Text(
                     "Mes Bouteilles :",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
+                        fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
@@ -60,7 +53,6 @@ class HomePage extends StatelessWidget {
                     CardStat(),
                     CardStat(),
                     CardStat(),
-                    CardStat(),
                   ],
                 ),
               ),
@@ -70,7 +62,7 @@ class HomePage extends StatelessWidget {
                   const Text(
                     "Mes Caves :",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
+                        fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
@@ -101,7 +93,6 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const ConcordinoNavbar(),
       ),
     );
   }
