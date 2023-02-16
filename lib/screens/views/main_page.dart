@@ -69,8 +69,11 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.search),
             // activeIcon:
             //     Icon(Icons.search, color: Color.fromARGB(255, 131, 4, 11)),
-            activeIcon: Icon(Icons.search,
-            color: Color.fromARGB(255, 131, 4, 11), size: 35,),
+            activeIcon: Icon(
+              Icons.search,
+              color: Color.fromARGB(255, 131, 4, 11),
+              size: 35,
+            ),
             label: '',
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
           ),
@@ -80,15 +83,21 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
             // activeIcon:
             //     Icon(Icons.inventory, color: Color.fromARGB(255, 131, 4, 11)),
-            activeIcon: Icon(Icons.inventory,
-            color: Color.fromARGB(255, 131, 4, 11), size: 35,),
+            activeIcon: Icon(
+              Icons.inventory,
+              color: Color.fromARGB(255, 131, 4, 11),
+              size: 35,
+            ),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.receipt_long),
             label: '',
             backgroundColor: Color.fromARGB(255, 131, 4, 11),
-            activeIcon: Icon(Icons.receipt_long,
-            color: Color.fromARGB(255, 131, 4, 11), size: 35,),
+            activeIcon: Icon(
+              Icons.receipt_long,
+              color: Color.fromARGB(255, 131, 4, 11),
+              size: 35,
+            ),
           ),
         ],
       ),
