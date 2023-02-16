@@ -26,7 +26,7 @@ class ElevatedCustom extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, route);
+            Navigator.pushReplacementNamed(context, route);
           },
           style: ElevatedButton.styleFrom(
             foregroundColor: textColor,

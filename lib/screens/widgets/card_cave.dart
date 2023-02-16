@@ -9,8 +9,16 @@ class CardCave extends StatelessWidget {
       height: 150,
       width: 100,
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
         borderRadius: BorderRadius.circular(12),
-        color: const Color.fromARGB(255, 131, 4, 11),
+        color: const Color.fromARGB(255, 255, 255, 255),
         image: const DecorationImage(
           image: NetworkImage(
               'https://s.hdnux.com/photos/76/22/75/16330583/9/rawImage.jpg'),
@@ -35,12 +43,14 @@ class CardCave extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.fromLTRB(0, 120, 0, 0),
         decoration: const BoxDecoration(
-          boxShadow: [BoxShadow()],
+          boxShadow: [
+            BoxShadow(),
+          ],
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(12),
             bottomRight: Radius.circular(12),
           ),
-          color: Color.fromARGB(255, 131, 4, 11),
+          color: Color.fromARGB(255, 255, 255, 255),
         ),
       ),
     );

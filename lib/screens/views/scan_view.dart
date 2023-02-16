@@ -1,4 +1,4 @@
-import 'package:concordino_front/screens/widgets/navbar.dart';
+import 'package:concordino_front/screens/views/bottle_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
@@ -11,119 +11,68 @@ class ScanPage extends StatefulWidget {
 }
 
 class _ScanPageState extends State<ScanPage> {
-  // late List<CameraDescription> cameras;
   late CameraController _controller;
   late Future<void> _initializeControllerFuture;
-  // Future <void> initCamera() async {
-  //   try {
-  //     await _cameraController!.initialize().then((_) {
-  //       if (!mounted) return;
-  //       setState(() {});
-  //     });
-  //   } on CameraException catch (e) {
-  //     debugPrint("camera error $e");
-  //   }
-  // }
 
   @override
-  // void initState() async {
-  //   super.initState();
-  //   cameras = await availableCameras();
-  //   _cameraController =
-  //       CameraController(cameras[0], ResolutionPreset.high);
-  //   initCamera();
-  // }
   void initState() {
     super.initState();
     _controller = CameraController(
       widget.cameras,
-      ResolutionPreset.medium,
+      ResolutionPreset.high,
     );
 
-    // Next, initialize the controller. This returns a Future.
     _initializeControllerFuture = _controller.initialize();
   }
 
   @override
-  // void dispose() {
-  //   _cameraController!.dispose();
-  //   super.dispose();
-  // }
   void dispose() {
-    // Dispose of the controller when the widget is disposed.
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-            Color.fromARGB(255, 107, 23, 81),
-            Color.fromARGB(230, 107, 23, 81),
-            Color.fromARGB(250, 8, 7, 8),
-          ])),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.person),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-          ],
-        ),
-        // body: SafeArea(
-        //     child: _cameraController!.value.isInitialized
-        //         ? CameraPreview(_cameraController!)
-        //         : const Center(child: CircularProgressIndicator())),
-        body: FutureBuilder<void>(
-          future: _initializeControllerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              // If the Future is complete, display the preview.
-              return CameraPreview(_controller);
-            } else {
-              // Otherwise, display a loading indicator.
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () async {
-        //     try {
-        //       await _initializeControllerFuture;
-
-        // final image = await _controller.takePicture();
-        // context.read<BikeDataProvider>().setImage(image);
-
-        //       if (!mounted) return;
-
-        // _close();
-
-        // If the picture was taken, display it on a new screen.
-
-        // await Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (context) => DisplayPictureScreen(
-        //       imagePath: image.path,
-        //     ),
-        //   ),
-        // );
-        //     } catch (e) {
-        //       print(e);
-        //     }
-        //   },
-        // ),
-        bottomNavigationBar: const ConcordinoNavbar(),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: FutureBuilder<void>(
+        future: _initializeControllerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return CameraPreview(_controller);
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
+      floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        child: Container(
+          height: 80,
+          width: 100,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(50)),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
+                spreadRadius: 3,
+                blurRadius: 3,
+                offset: const Offset(0, 0.5),
+              ),
+            ],
+          ),
+          child: const Icon(Icons.camera_alt),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const BottleInfoView()),
+          );
+        },
+      ),
+      // bottomNavigationBar: const ConcordinoNavbar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
