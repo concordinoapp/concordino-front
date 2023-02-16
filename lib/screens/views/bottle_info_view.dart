@@ -53,8 +53,7 @@ class _BottleInfoViewState extends State<BottleInfoView> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
                       WineSpecificitiesRow(title: "Région", value: "Alsace"),
-                      WineSpecificitiesRow(
-                          title: "Sépage", value: "Chardonay"),
+                      WineSpecificitiesRow(title: "Sépage", value: "Chardonay"),
                       WineSpecificitiesRow(title: "Couleur", value: "Rouge"),
                       WineSpecificitiesRow(
                           title: "Terroir", value: "Granitique"),
@@ -90,8 +89,7 @@ class _BottleInfoViewState extends State<BottleInfoView> {
                         BottleData(
                           text: "Sec et frais",
                         ),
-                        BottleData(
-                            text: "Base de poisson et de fruits de mer"),
+                        BottleData(text: "Base de poisson et de fruits de mer"),
                         BottleData(
                             text:
                                 "apéritif ou en accompagnement d'un repas léger"),

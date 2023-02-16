@@ -55,8 +55,7 @@ class _ScanPageState extends State<ScanPage> {
             borderRadius: const BorderRadius.all(Radius.circular(50)),
             boxShadow: [
               BoxShadow(
-                color:
-                    const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
+                color: const Color.fromARGB(255, 132, 0, 121).withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 3,
                 offset: const Offset(0, 0.5),
