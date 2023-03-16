@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 String getToken() =>
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2Nzg2NTI3MjksInVzZXJfaWQiOjN9.uh1L54_GRreEfTm11Wcyy7PHuidYDUqa66R2C4kNpOk";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NzkwNjYwMDcsInVzZXJfaWQiOjN9.RO_ASuIfQ72BYnrqioRd_3ShCYwtJDz0clxYCjJyd8M";
 
 class TokenAuth {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();

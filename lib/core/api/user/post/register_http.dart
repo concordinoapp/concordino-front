@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
-import '../../get_adress.dart';
+import '../../get_adress_http.dart';
 
 Future<void> registerHttp(Map<String, dynamic> arguments) async {
   var url = Uri.http(getAdress(), '/user/create');

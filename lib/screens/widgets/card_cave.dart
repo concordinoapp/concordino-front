@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CardCave extends StatelessWidget {
@@ -8,6 +10,7 @@ class CardCave extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+        Random random = Random();
     return Container(
       height: 150,
       width: 100,
@@ -21,12 +24,12 @@ class CardCave extends StatelessWidget {
           ),
         ],
         borderRadius: BorderRadius.circular(12),
-        color: const Color.fromARGB(255, 255, 255, 255),
-        image: const DecorationImage(
-          image: NetworkImage(
-              'https://s.hdnux.com/photos/76/22/75/16330583/9/rawImage.jpg'),
-          fit: BoxFit.cover,
-        ),
+        color: Color.fromRGBO(
+    random.nextInt(255),
+    random.nextInt(255),
+    random.nextInt(255),
+    1,
+),
       ),
       child: Container(
         height: 25,
