@@ -2,10 +2,12 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
-Future<void> loginHttp(Map<String, dynamic> arguments) async {
-  var url = Uri.https('www.googleapis.com', '/user/create');
+import '../../get_adress.dart';
 
-  var response = await http.post(url, body: arguments);
+Future<void> getUserHttp(Map<String, dynamic> arguments) async {
+  var url = Uri.http(getAdress(), '/api/user', arguments);
+
+  var response = await http.get(url);
   if (response.statusCode == 200) {
   } else {
     log('Request failed with status: ${response.statusCode}.');

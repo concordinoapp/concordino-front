@@ -3,10 +3,11 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
-import '../model/user_model.dart';
+import '../../../model/user_model.dart';
+import '../../get_adress.dart';
 
 Future<User> loginHttp(Map<String, dynamic> arguments) async {
-  var url = Uri.https('www.googleapis.com', '/user/login');
+  var url = Uri.http(getAdress(), '/user/login');
 
   var response = await http.post(url, body: arguments);
   if (response.statusCode == 200) {

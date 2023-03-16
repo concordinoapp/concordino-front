@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class BottleInfoView extends StatefulWidget {
+class BottleInfoView extends StatelessWidget {
   const BottleInfoView({super.key});
 
-  @override
-  State<BottleInfoView> createState() => _BottleInfoViewState();
-}
-
-class _BottleInfoViewState extends State<BottleInfoView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

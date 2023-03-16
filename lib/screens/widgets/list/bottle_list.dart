@@ -2,6 +2,7 @@ import 'package:concordino_front/core/model/bottle_model.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../views/bottle_info_view.dart';
 import 'add_remove_bottle_buttons.dart';
 
 class BottleList extends StatefulWidget {
@@ -31,6 +32,12 @@ class _BottleListState extends State<BottleList> {
       itemCount: widget.bottles.length,
       itemBuilder: (context, index) {
         return ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const BottleInfoView()),
+              );
+            },
             title: Text(
               widget.bottles[index].name,
               textAlign: TextAlign.start,
@@ -42,7 +49,7 @@ class _BottleListState extends State<BottleList> {
               ],
             ),
             leading: Image.network(
-              widget.bottles[index].image,
+              widget.bottles[index].image!,
             ),
             trailing: SizedBox(
               width: 100,

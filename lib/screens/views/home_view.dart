@@ -1,7 +1,13 @@
+import 'dart:io';
+
 import 'package:concordino_front/constants/colors.dart';
+import 'package:concordino_front/core/auth/token.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
 import 'package:concordino_front/screens/widgets/card_stat.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/api/cave/get/get_user_cave_http.dart';
+import '../../core/model/cave_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -75,20 +81,30 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
-                child: GridView.count(
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: 0.9,
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  children: const [
-                    CardCave(),
-                    CardCave(),
-                    CardCave(),
-                    CardCave()
-                  ],
-                ),
+                child: FutureBuilder<List<Cave>>(
+                    future: getUserCaveHttp({"token": getToken()}),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return GridView.count(
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 20,
+                          childAspectRatio: 0.9,
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          crossAxisCount: 2,
+                          children: snapshot.data!
+                              .map((cave) => CardCave(
+                                    quantity: cave.bottles.length,
+                                    name: cave.name,
+                                  ))
+                              .toList(),
+                        );
+                      } else if (snapshot.hasError) {
+                        return const Text("Error");
+                      } else {
+                        return const CircularProgressIndicator();
+                      }
+                    }),
               ),
             ],
           ),

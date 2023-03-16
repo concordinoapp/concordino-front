@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CardCave extends StatelessWidget {
-  const CardCave({Key? key}) : super(key: key);
+  final String name;
+  final int quantity;
 
+  const CardCave({Key? key, required this.name, required this.quantity})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,19 +29,6 @@ class CardCave extends StatelessWidget {
         ),
       ),
       child: Container(
-        // ignore: sort_child_properties_last
-        child: Column(
-          children: const [
-            Text(
-              "nom cave",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "quantité bouteilles",
-              style: TextStyle(fontSize: 12),
-            )
-          ],
-        ),
         height: 25,
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.fromLTRB(0, 120, 0, 0),
@@ -51,6 +41,18 @@ class CardCave extends StatelessWidget {
             bottomRight: Radius.circular(12),
           ),
           color: Color.fromARGB(255, 255, 255, 255),
+        ),
+        child: Column(
+          children: [
+            Text(
+              name,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text(
+              quantity.toString(),
+              style: const TextStyle(fontSize: 12),
+            )
+          ],
         ),
       ),
     );
