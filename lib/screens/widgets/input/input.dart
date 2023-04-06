@@ -16,17 +16,8 @@ class InputCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        const SizedBox(
-          height: 30,
-        ),
-        SizedBox(
-          height: 55,
-          width: 300,
-          child: TextField(
-            decoration: InputDecoration(
+
+    InputDecoration inputDecoration = InputDecoration(
               contentPadding: const EdgeInsets.all(20.0),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(11),
@@ -39,7 +30,22 @@ class InputCustom extends StatelessWidget {
               filled: true,
               fillColor: backgroundColor,
               hintText: content,
-            ),
+            );
+
+
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        const SizedBox(
+          height: 30,
+        ),
+        SizedBox(
+          height: 55,
+          width: 300,
+          child: TextField(
+            controller: controler,
+            decoration: inputDecoration,
           ),
         ),
       ],

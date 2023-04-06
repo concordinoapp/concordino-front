@@ -1,10 +1,12 @@
 import 'package:concordino_front/core/auth/token.dart';
+import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 // import 'package:image_picker/image_picker.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:camera/camera.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/api/cave/post/create_cave_http.dart';
 import 'home_view.dart';
@@ -43,6 +45,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider = Provider.of<UserProvider>(context, listen: true);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         heroTag: "Scan",
@@ -61,6 +64,7 @@ class _MainPageState extends State<MainPage> {
         child: const Icon(Icons.camera_alt),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_titles[_currentIndex]),
         backgroundColor: const Color.fromARGB(255, 131, 4, 11),
       ),
@@ -74,7 +78,7 @@ class _MainPageState extends State<MainPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) =>  AddCaveView(),
+                  builder: (_) =>  AddCaveView(token : userProvider.getProfilToken!),
                 ),
               );
             },
@@ -134,7 +138,8 @@ class _MainPageState extends State<MainPage> {
 }
 
 class AddCaveView extends StatelessWidget {
-   AddCaveView({super.key});
+  final String token;
+   AddCaveView({super.key, required this.token});
   TextEditingController controler = TextEditingController();
 
   @override
@@ -145,7 +150,7 @@ class AddCaveView extends StatelessWidget {
         InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
         const SizedBox(height: 20,),
         ElevatedButton(onPressed: () {
-          createCaveHttp({"token": getToken() ,"name" : controler.text});
+          createCaveHttp({"name" : controler.text}, token);
         }, style: ElevatedButton.styleFrom(
 
           backgroundColor: const Color.fromARGB(255, 131, 4, 11),
@@ -154,5 +159,28 @@ class AddCaveView extends StatelessWidget {
         child: const Text("Ajouter"),)
       ],
     )),);
+  }
+}
+class AddCaveDialog extends StatelessWidget {
+  final String token;
+   AddCaveDialog({super.key, required this.token});
+  TextEditingController controler = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return  Center(child: Column(
+      children: [
+        InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
+        const SizedBox(height: 20,),
+        ElevatedButton(onPressed: () {
+          createCaveHttp({"name" : controler.text}, token);
+        }, style: ElevatedButton.styleFrom(
+
+          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+
+        ), 
+        child: const Text("Ajouter"),)
+      ],
+    ));
   }
 }

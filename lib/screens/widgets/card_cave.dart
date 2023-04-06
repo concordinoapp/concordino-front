@@ -1,10 +1,15 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/provider/user_provider.dart';
+import '../views/main_page.dart';
 
 class CardCave extends StatelessWidget {
   final String name;
   final int quantity;
+
 
   const CardCave({Key? key, required this.name, required this.quantity})
       : super(key: key);
@@ -63,3 +68,48 @@ class CardCave extends StatelessWidget {
 }
 
 //find boxshadow flutter.
+
+
+class AddCardCaveButton extends CardCave {
+
+  const AddCardCaveButton({Key? key})
+      : super(
+            key: key,
+            name: "Ajouter une cave",
+            quantity: 0,
+            );
+
+  @override
+  Widget build(BuildContext context) {
+    String token = Provider.of<UserProvider>(context, listen: false).token!;
+    return GestureDetector(
+      onTap: () {
+        showDialog(context: context, builder: (context) =>  AlertDialog(content: AddCaveDialog(token : token)));
+      },
+      child: Container(
+        height: 150,
+        width: 100,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.black38,
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+        )
+        ),
+      ),
+    );
+  }
+
+
+}
