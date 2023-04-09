@@ -35,7 +35,7 @@ class _BottleListState extends State<BottleList> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const BottleInfoView()),
+                MaterialPageRoute(builder: (context) => BottleInfoView()),
               );
             },
             title: Text(

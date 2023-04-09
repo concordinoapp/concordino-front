@@ -134,8 +134,8 @@ class _MainPageState extends State<MainPage> {
 }
 
 class AddCaveView extends StatelessWidget {
-   AddCaveView({super.key});
-  TextEditingController controler = TextEditingController();
+  AddCaveView({super.key});
+  final TextEditingController controler = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

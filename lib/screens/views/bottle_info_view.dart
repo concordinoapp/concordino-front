@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:concordino_front/screens/widgets/input/select.dart';
+import 'package:concordino_front/screens/widgets/input/input.dart';
+import 'package:concordino_front/screens/widgets/button/elevated.dart';
 
 class BottleInfoView extends StatelessWidget {
-  const BottleInfoView({super.key});
+  BottleInfoView({super.key});
+  final TextEditingController controler = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +20,71 @@ class BottleInfoView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                Row (
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: const Color.fromARGB(255, 131, 4, 11),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        textStyle: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.bold, fontSize: 15
+                        )
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet<void>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Container(
+                              height: 300,
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              child: Center(
+                                child: Column(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top:20),
+                                      child: Text("Jean-Baptiste Adam",
+                                        style: TextStyle(
+                                        fontWeight: FontWeight.bold, fontSize: 20)
+                                      ),
+                                    ),
+                                    InputCustom(content: "Quantitée", controler: controler, backgroundColor:  Colors.white),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top:10),
+                                      child: SelectCustom(list: ["cave foissiat", "cave lyon"], backgroundColor: Colors.white),
+                                    ),
+                                    const ElevatedCustom(
+                                      content: "Ajouter",
+                                      textColor: Color.fromARGB(255, 107, 23, 81),
+                                      backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                                      route: "/main",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: const Text('Ajouter à la cave'),
+                    ),
+                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: const Color.fromARGB(255, 131, 4, 11),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        textStyle: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.bold, fontSize: 15
+                        )
+                      ),
+                      child: const Text('Consulter le domaine'),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -49,7 +118,7 @@ class BottleInfoView extends StatelessWidget {
                     children: const [
                       WineSpecificitiesRow(title: "Région", value: "Alsace"),
                       WineSpecificitiesRow(title: "Sépage", value: "Chardonay"),
-                      WineSpecificitiesRow(title: "Couleur", value: "Rouge"),
+                      WineSpecificitiesRow(title: "Type", value: "Rouge"),
                       WineSpecificitiesRow(
                           title: "Terroir", value: "Granitique"),
                       WineSpecificitiesRow(title: "Année", value: "2021"),
