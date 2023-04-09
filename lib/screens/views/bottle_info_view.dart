@@ -20,19 +20,19 @@ class BottleInfoView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row (
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     ElevatedButton(
+                    ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: const Color.fromARGB(255, 131, 4, 11),
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: const TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.bold, fontSize: 15
-                        )
-                      ),
+                          foregroundColor:
+                              const Color.fromARGB(255, 131, 4, 11),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          textStyle: const TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15)),
                       onPressed: () {
                         showModalBottomSheet<void>(
                           context: context,
@@ -44,21 +44,32 @@ class BottleInfoView extends StatelessWidget {
                                 child: Column(
                                   children: <Widget>[
                                     const Padding(
-                                      padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top:20),
+                                      padding: EdgeInsets.only(
+                                          left: 0,
+                                          bottom: 0,
+                                          right: 0,
+                                          top: 20),
                                       child: Text("Jean-Baptiste Adam",
-                                        style: TextStyle(
-                                        fontWeight: FontWeight.bold, fontSize: 20)
-                                      ),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20)),
                                     ),
-                                    InputCustom(content: "Quantitée", controler: controler, backgroundColor:  Colors.white),
+                                    InputCustom(
+                                        content: "Quantitée",
+                                        controler: controler,
+                                        backgroundColor: Colors.white),
                                     const Padding(
-                                      padding: EdgeInsets.only(top:10),
-                                      child: SelectCustom(list: ["cave foissiat", "cave lyon"], backgroundColor: Colors.white),
+                                      padding: EdgeInsets.only(top: 10),
+                                      child: SelectCustom(
+                                          list: ["cave foissiat", "cave lyon"],
+                                          backgroundColor: Colors.white),
                                     ),
                                     const ElevatedCustom(
                                       content: "Ajouter",
-                                      textColor: Color.fromARGB(255, 107, 23, 81),
-                                      backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                                      textColor:
+                                          Color.fromARGB(255, 107, 23, 81),
+                                      backgroundColor:
+                                          Color.fromARGB(249, 249, 249, 249),
                                       route: "/main",
                                     ),
                                   ],
@@ -70,16 +81,16 @@ class BottleInfoView extends StatelessWidget {
                       },
                       child: const Text('Ajouter à la cave'),
                     ),
-                     ElevatedButton(
+                    ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: const Color.fromARGB(255, 131, 4, 11),
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        textStyle: const TextStyle(
-                          decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.bold, fontSize: 15
-                        )
-                      ),
+                          foregroundColor:
+                              const Color.fromARGB(255, 131, 4, 11),
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          textStyle: const TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15)),
                       child: const Text('Consulter le domaine'),
                       onPressed: () {},
                     ),

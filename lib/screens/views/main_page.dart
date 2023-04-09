@@ -74,7 +74,7 @@ class _MainPageState extends State<MainPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) =>  AddCaveView(),
+                  builder: (_) => AddCaveView(),
                 ),
               );
             },
@@ -139,20 +139,32 @@ class AddCaveView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(appBar: AppBar(title: const Text("Add Cave"), backgroundColor: const Color.fromARGB(255, 131, 4, 11),),
-    body: Center(child: Column(
-      children: [
-        InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
-        const SizedBox(height: 20,),
-        ElevatedButton(onPressed: () {
-          createCaveHttp({"token": getToken() ,"name" : controler.text});
-        }, style: ElevatedButton.styleFrom(
-
-          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-
-        ), 
-        child: const Text("Ajouter"),)
-      ],
-    )),);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Add Cave"),
+        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+      ),
+      body: Center(
+          child: Column(
+        children: [
+          InputCustom(
+              content: "Nom cave",
+              controler: controler,
+              backgroundColor: Colors.white),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              createCaveHttp({"token": getToken(), "name": controler.text});
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+            ),
+            child: const Text("Ajouter"),
+          )
+        ],
+      )),
+    );
   }
 }
