@@ -78,7 +78,7 @@ class _MainPageState extends State<MainPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) =>  AddCaveView(token : userProvider.getProfilToken!),
+                  builder: (_) =>  AddCaveView(),
                 ),
               );
             },
@@ -138,8 +138,7 @@ class _MainPageState extends State<MainPage> {
 }
 
 class AddCaveView extends StatelessWidget {
-  final String token;
-   AddCaveView({super.key, required this.token});
+   AddCaveView({super.key});
   TextEditingController controler = TextEditingController();
 
   @override
@@ -150,7 +149,7 @@ class AddCaveView extends StatelessWidget {
         InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
         const SizedBox(height: 20,),
         ElevatedButton(onPressed: () {
-          createCaveHttp({"name" : controler.text}, token);
+          createCaveHttp({"token": getToken() ,"name" : controler.text});
         }, style: ElevatedButton.styleFrom(
 
           backgroundColor: const Color.fromARGB(255, 131, 4, 11),
@@ -159,28 +158,5 @@ class AddCaveView extends StatelessWidget {
         child: const Text("Ajouter"),)
       ],
     )),);
-  }
-}
-class AddCaveDialog extends StatelessWidget {
-  final String token;
-   AddCaveDialog({super.key, required this.token});
-  TextEditingController controler = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return  Center(child: Column(
-      children: [
-        InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
-        const SizedBox(height: 20,),
-        ElevatedButton(onPressed: () {
-          createCaveHttp({"name" : controler.text}, token);
-        }, style: ElevatedButton.styleFrom(
-
-          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-
-        ), 
-        child: const Text("Ajouter"),)
-      ],
-    ));
   }
 }

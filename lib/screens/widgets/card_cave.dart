@@ -15,7 +15,7 @@ class CardCave extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-        Random random = Random();
+    Random random = Random();
     return Container(
       height: 150,
       width: 100,
@@ -30,11 +30,11 @@ class CardCave extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(12),
         color: Color.fromRGBO(
-    random.nextInt(255),
-    random.nextInt(255),
-    random.nextInt(255),
-    1,
-),
+          random.nextInt(255),
+          random.nextInt(255),
+          random.nextInt(255),
+          1,
+        ),
       ),
       child: Container(
         height: 25,
