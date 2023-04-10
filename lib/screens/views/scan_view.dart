@@ -67,7 +67,7 @@ class _ScanPageState extends State<ScanPage> {
         onPressed: () async {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const BottleInfoView()),
+            MaterialPageRoute(builder: (context) => BottleInfoView()),
           );
         },
       ),

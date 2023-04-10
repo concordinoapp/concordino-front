@@ -4,7 +4,12 @@ import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({Key? key}) : super(key: key);
+
+  final textControllerUsername = TextEditingController();
+  final textControllerEmail = TextEditingController();
+  final textControllerPassword = TextEditingController();
+  final textControllerConfirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +36,32 @@ class RegisterPage extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 25),
               ),
-              const InputCustom(
+              InputCustom(
+                content: "Pseudo",
+                controler: textControllerUsername,
+                backgroundColor: const Color.fromARGB(249, 249, 249, 249),
+              ),
+              InputCustom(
                 content: "E-mail",
-                backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                controler: textControllerEmail,
+                backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
-              const InputCustom(
+              InputCustom(
                 content: "Mot de passe",
-                backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                controler: textControllerPassword,
+                backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
-              const InputCustom(
+              InputCustom(
                 content: "Confirmation du mot de passe",
-                backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                controler: textControllerConfirmPassword,
+                backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Column(
                   children: const [
                     ElevatedCustom(
-                      content: "Connexion",
+                      content: "Inscription",
                       textColor: Color.fromARGB(255, 107, 23, 81),
                       backgroundColor: Color.fromARGB(249, 249, 249, 249),
                       route: "/main",
@@ -60,12 +73,15 @@ class RegisterPage extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Column(
                   children: [
-                    Text(
-                      "J'ai déjà un compte ?",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white.withOpacity(0.5),
-                          fontSize: 14),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/login");
+                      },
+                      child: Text("J'ai déjà un compte",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: 14)),
                     ),
                   ],
                 ),

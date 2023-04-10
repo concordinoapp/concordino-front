@@ -4,7 +4,10 @@ import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+
+  final textControllerUsername = TextEditingController();
+  final textControllerPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +41,15 @@ class LoginPage extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 25),
               ),
-              const InputCustom(
-                content: "E-mail",
-                backgroundColor: Color.fromARGB(249, 249, 249, 249),
+              InputCustom(
+                content: "Pseudo",
+                controler: textControllerUsername,
+                backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
-              const InputCustom(
+              InputCustom(
                 content: "Mot de passe",
-                backgroundColor: Color.fromARGB(249, 249, 249, 249),
+                controler: textControllerPassword,
+                backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -63,12 +68,17 @@ class LoginPage extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Column(
                   children: [
-                    Text(
-                      "Je n'ai pas de compte ?",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white.withOpacity(0.5),
-                          fontSize: 14),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/register");
+                      },
+                      child: Text(
+                        "Je n'ai pas de compte",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black.withOpacity(0.5),
+                            fontSize: 14),
+                      ),
                     ),
                   ],
                 ),

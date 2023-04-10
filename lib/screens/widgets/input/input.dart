@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class InputCustom extends StatelessWidget {
   const InputCustom(
-      {Key? key, required this.content, required this.backgroundColor})
+      {Key? key,
+      required this.content,
+      required this.controler,
+      required this.backgroundColor})
       : super(key: key);
+  final TextEditingController controler;
   final String content;
   final Color backgroundColor;
 

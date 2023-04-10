@@ -1,9 +1,12 @@
+import 'package:concordino_front/core/auth/token.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
+import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:flutter/material.dart';
 // import 'package:image_picker/image_picker.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:camera/camera.dart';
 
+import '../../core/api/cave/post/create_cave_http.dart';
 import 'home_view.dart';
 import 'list_view.dart';
 
@@ -42,6 +45,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        heroTag: "Scan",
+        key: const Key("Scan"),
         onPressed: () async {
           await availableCameras().then(
             (cameras) => Navigator.push(
@@ -59,7 +64,34 @@ class _MainPageState extends State<MainPage> {
         title: Text(_titles[_currentIndex]),
         backgroundColor: const Color.fromARGB(255, 131, 4, 11),
       ),
-      body: pages[_currentIndex],
+      body: Stack(children: [
+        pages[_currentIndex],
+        Positioned(
+          bottom: 90,
+          right: 10,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => AddCaveView(),
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(20),
+              backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+              foregroundColor: Theme.of(context).primaryColor,
+            ),
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 20,
+            ),
+          ),
+        )
+      ]),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 200,
         onTap: onTabTapped,
@@ -97,6 +129,42 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class AddCaveView extends StatelessWidget {
+  AddCaveView({super.key});
+  final TextEditingController controler = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Add Cave"),
+        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+      ),
+      body: Center(
+          child: Column(
+        children: [
+          InputCustom(
+              content: "Nom cave",
+              controler: controler,
+              backgroundColor: Colors.white),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              createCaveHttp({"token": getToken(), "name": controler.text});
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+            ),
+            child: const Text("Ajouter"),
+          )
+        ],
+      )),
     );
   }
 }
