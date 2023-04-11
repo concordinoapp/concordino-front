@@ -70,11 +70,12 @@ class _LoginPageState extends State<LoginPage> {
                     ElevatedButton(
                         onPressed: () {
                           loginHttp(
-                            username: textControllerUsername.text,
-                            password: textControllerPassword.text
-                          ).then((data) {
+                                  username: textControllerUsername.text,
+                                  password: textControllerPassword.text)
+                              .then((data) {
                             if (data["success"] == true) {
-                                  Provider.of<UserProvider>(context, listen: false).setProfilToken(data["token"]);
+                              Provider.of<UserProvider>(context, listen: false)
+                                  .setProfilToken(data["token"]);
 
                               navigateToHome(context);
                             } else {

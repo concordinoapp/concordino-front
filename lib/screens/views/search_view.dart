@@ -19,8 +19,8 @@ class SearchPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(
-            children:  [
-             const Text(
+            children: [
+              const Text(
                 "Recherche",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,

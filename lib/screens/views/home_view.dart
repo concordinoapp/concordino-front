@@ -1,4 +1,3 @@
-
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
@@ -7,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/api/cave/get/get_user_cave_http.dart';
 import '../../core/model/cave_model.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -15,9 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context, listen: true);
@@ -43,7 +40,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 10, color: Colors.black),
+                      textStyle:
+                          const TextStyle(fontSize: 10, color: Colors.black),
                     ),
                     onPressed: () {},
                     child: const Text('VOIR TOUT'),
@@ -74,7 +72,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 10, color: Colors.black),
+                      textStyle:
+                          const TextStyle(fontSize: 10, color: Colors.black),
                     ),
                     onPressed: () {},
                     child: const Text('VOIR TOUT'),
@@ -84,7 +83,9 @@ class _HomePageState extends State<HomePage> {
               Container(
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
                 child: FutureBuilder<List<Cave>>(
-                    future: getUserCaveHttp({"token": userProvider.getProfilToken}, userProvider.getProfilToken!),
+                    future: getUserCaveHttp(
+                        {"token": userProvider.getProfilToken},
+                        userProvider.getProfilToken!),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return GridView.count(
@@ -95,12 +96,14 @@ class _HomePageState extends State<HomePage> {
                           shrinkWrap: true,
                           crossAxisCount: 2,
                           children: snapshot.data!
-                              .asMap().entries.map((cave) => cave.key != 0 ? CardCave(
-                                    quantity: cave.value.bottles.length,
-                                    name: cave.value.name,
-                                  ) 
-                                  : 
-                                  const AddCardCaveButton()) 
+                              .asMap()
+                              .entries
+                              .map((cave) => cave.key != 0
+                                  ? CardCave(
+                                      quantity: cave.value.bottles.length,
+                                      name: cave.value.name,
+                                    )
+                                  : const AddCardCaveButton())
                               .toList(),
                         );
                       } else if (snapshot.hasError) {

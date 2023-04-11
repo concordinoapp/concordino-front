@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         '/login': (context) => const LoginPage(),
         '/register': (context) => RegisterPage(),
         '/home': (context) => const HomePage(),
-        '/search': (context) =>  SearchPage(),
+        '/search': (context) => SearchPage(),
         // '/scan': (context) => const ScanPage(),
         '/list': (context) => ListPage(),
         '/community': (context) => const CommunityPage(),

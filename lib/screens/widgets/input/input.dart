@@ -16,23 +16,20 @@ class InputCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     InputDecoration inputDecoration = InputDecoration(
-              contentPadding: const EdgeInsets.all(20.0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(11),
-                borderSide: BorderSide(width: 0, color: backgroundColor),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(11),
-                borderSide: BorderSide(width: 0, color: backgroundColor),
-              ),
-              filled: true,
-              fillColor: backgroundColor,
-              hintText: content,
-            );
-
-
+      contentPadding: const EdgeInsets.all(20.0),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(11),
+        borderSide: BorderSide(width: 0, color: backgroundColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(11),
+        borderSide: BorderSide(width: 0, color: backgroundColor),
+      ),
+      filled: true,
+      fillColor: backgroundColor,
+      hintText: content,
+    );
 
     return Column(
       mainAxisSize: MainAxisSize.min,

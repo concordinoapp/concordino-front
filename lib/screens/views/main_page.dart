@@ -22,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 1;
 
   final pages = [
-     SearchPage(),
+    SearchPage(),
     const HomePage(),
     ListPage(),
   ];
@@ -44,7 +44,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    UserProvider userProvider = Provider.of<UserProvider>(context, listen: true);
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: true);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         heroTag: "Scan",
@@ -74,7 +75,10 @@ class _MainPageState extends State<MainPage> {
           right: 10,
           child: ElevatedButton(
             onPressed: () {
-              showDialog(context: context, builder: (context) =>  AddCaveDialog(token : userProvider.token!));
+              showDialog(
+                  context: context,
+                  builder: (context) =>
+                      AddCaveDialog(token: userProvider.token!));
             },
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
@@ -132,30 +136,45 @@ class _MainPageState extends State<MainPage> {
 }
 
 class AddCaveView extends StatelessWidget {
-   AddCaveView({super.key});
+  AddCaveView({super.key});
   final TextEditingController controler = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context, listen: true);
 
-    return  Scaffold(appBar: AppBar(title: const Text("Add Cave"), backgroundColor: const Color.fromARGB(255, 131, 4, 11),),
-    body: Center(child: Column(
-      children: [
-        InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
-        const SizedBox(height: 20,),
-        ElevatedButton(onPressed: () {
-          createCaveHttp({"token": userProvider.token! ,"name" : controler.text}, userProvider.token!);
-        }, style: ElevatedButton.styleFrom(
-
-          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-
-        ), 
-        child: const Text("Ajouter"),)
-      ],
-    )),);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Add Cave"),
+        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+      ),
+      body: Center(
+          child: Column(
+        children: [
+          InputCustom(
+              content: "Nom cave",
+              controler: controler,
+              backgroundColor: Colors.white),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              createCaveHttp(
+                  {"token": userProvider.token!, "name": controler.text},
+                  userProvider.token!);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+            ),
+            child: const Text("Ajouter"),
+          )
+        ],
+      )),
+    );
   }
 }
+
 class AddCaveDialog extends StatefulWidget {
   final String token;
   const AddCaveDialog({
@@ -172,18 +191,25 @@ class _AddCaveDialogState extends State<AddCaveDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(child: Column(
+    return Center(
+        child: Column(
       children: [
-        InputCustom(content: "Nom cave", controler: controler, backgroundColor:  Colors.white),
-        const SizedBox(height: 20,),
-        ElevatedButton(onPressed: () {
-          createCaveHttp({"name" : controler.text}, widget.token);
-        }, style: ElevatedButton.styleFrom(
-    
-          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-    
-        ), 
-        child: const Text("Ajouter"),)
+        InputCustom(
+            content: "Nom cave",
+            controler: controler,
+            backgroundColor: Colors.white),
+        const SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            createCaveHttp({"name": controler.text}, widget.token);
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+          ),
+          child: const Text("Ajouter"),
+        )
       ],
     ));
   }

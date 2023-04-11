@@ -10,7 +10,6 @@ class CardCave extends StatelessWidget {
   final String name;
   final int quantity;
 
-
   const CardCave({Key? key, required this.name, required this.quantity})
       : super(key: key);
   @override
@@ -69,22 +68,22 @@ class CardCave extends StatelessWidget {
 
 //find boxshadow flutter.
 
-
 class AddCardCaveButton extends CardCave {
-
   const AddCardCaveButton({Key? key})
       : super(
-            key: key,
-            name: "Ajouter une cave",
-            quantity: 0,
-            );
+          key: key,
+          name: "Ajouter une cave",
+          quantity: 0,
+        );
 
   @override
   Widget build(BuildContext context) {
     String token = Provider.of<UserProvider>(context, listen: false).token!;
     return GestureDetector(
       onTap: () {
-        showDialog(context: context, builder: (context) =>  AddCaveDialog(token : token));
+        showDialog(
+            context: context,
+            builder: (context) => AddCaveDialog(token: token));
       },
       child: Container(
         height: 150,
@@ -102,14 +101,11 @@ class AddCardCaveButton extends CardCave {
           color: Colors.black38,
         ),
         child: const Center(
-          child: Icon(
-            Icons.add,
-            color: Colors.white,
-        )
-        ),
+            child: Icon(
+          Icons.add,
+          color: Colors.white,
+        )),
       ),
     );
   }
-
-
 }

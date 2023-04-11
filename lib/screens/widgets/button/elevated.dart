@@ -10,7 +10,7 @@ class ElevatedCustom extends StatelessWidget {
       required this.route})
       : super(key: key);
   final String content;
-  final String  route;
+  final String route;
   final Color textColor;
   final Color backgroundColor;
 
@@ -43,18 +43,17 @@ class ElevatedCustom extends StatelessWidget {
   }
 }
 
-
 class RegisterCustom extends StatelessWidget {
-  const RegisterCustom(
-      {Key? key,
-      required this.content,
-      required this.textColor,
-      required this.backgroundColor,
-      required this.pseudo,
-      required this.email,
-      required this.password,
-      required this.confirmPassword,})
-      : super(key: key);
+  const RegisterCustom({
+    Key? key,
+    required this.content,
+    required this.textColor,
+    required this.backgroundColor,
+    required this.pseudo,
+    required this.email,
+    required this.password,
+    required this.confirmPassword,
+  }) : super(key: key);
   final String content;
   final Color textColor;
   final Color backgroundColor;
@@ -77,11 +76,14 @@ class RegisterCustom extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             if (password.text == confirmPassword.text) {
-              registerHttp({"username": pseudo.text, "email": email.text, "password": password.text});
+              registerHttp({
+                "username": pseudo.text,
+                "email": email.text,
+                "password": password.text
+              });
             } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text("Les mots de passes ne correspondent pas")));
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text("Les mots de passes ne correspondent pas")));
             }
           },
           style: ElevatedButton.styleFrom(

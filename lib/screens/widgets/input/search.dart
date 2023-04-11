@@ -5,17 +5,19 @@ import 'package:provider/provider.dart';
 
 class InputSearchCustom extends StatelessWidget {
   const InputSearchCustom(
-      {Key? key, required this.content, required this.backgroundColor, required this.controller})
+      {Key? key,
+      required this.content,
+      required this.backgroundColor,
+      required this.controller})
       : super(key: key);
   final String content;
   final TextEditingController controller;
   final Color backgroundColor;
 
-
-
   @override
   Widget build(BuildContext context) {
-  UserProvider userProvider = Provider.of<UserProvider>(context, listen: true);
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: true);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -42,7 +44,8 @@ class InputSearchCustom extends StatelessWidget {
               suffixIcon: IconButton(
                 onPressed: () {
                   if (controller.text.isNotEmpty) {
-                    searchBottleHttp({"name" : controller.text.toLowerCase()}, userProvider.token!);
+                    searchBottleHttp({"name": controller.text.toLowerCase()},
+                        userProvider.token!);
                   }
                 },
                 color: const Color.fromARGB(255, 107, 23, 81),
