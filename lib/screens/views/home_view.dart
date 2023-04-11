@@ -31,9 +31,8 @@ class _HomePageState extends State<HomePage> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: Column(
+          child: ListView(
             children: [
-              AddCardCaveButton(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -44,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 10),
+                      textStyle: const TextStyle(fontSize: 10, color: Colors.black),
                     ),
                     onPressed: () {},
                     child: const Text('VOIR TOUT'),
@@ -96,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                           shrinkWrap: true,
                           crossAxisCount: 2,
                           children: snapshot.data!
-                              .asMap().entries.map((cave) => cave.key == 1 ? CardCave(
+                              .asMap().entries.map((cave) => cave.key != 0 ? CardCave(
                                     quantity: cave.value.bottles.length,
                                     name: cave.value.name,
                                   ) 

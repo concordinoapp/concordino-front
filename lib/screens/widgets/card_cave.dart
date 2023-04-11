@@ -84,7 +84,7 @@ class AddCardCaveButton extends CardCave {
     String token = Provider.of<UserProvider>(context, listen: false).token!;
     return GestureDetector(
       onTap: () {
-        showDialog(context: context, builder: (context) =>  AlertDialog(content: AddCaveDialog(token : token)));
+        showDialog(context: context, builder: (context) =>  AddCaveDialog(token : token));
       },
       child: Container(
         height: 150,
