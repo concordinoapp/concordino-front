@@ -16,6 +16,21 @@ class InputCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    InputDecoration inputDecoration = InputDecoration(
+      contentPadding: const EdgeInsets.all(20.0),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(11),
+        borderSide: BorderSide(width: 0, color: backgroundColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(11),
+        borderSide: BorderSide(width: 0, color: backgroundColor),
+      ),
+      filled: true,
+      fillColor: backgroundColor,
+      hintText: content,
+    );
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -26,20 +41,8 @@ class InputCustom extends StatelessWidget {
           height: 55,
           width: 300,
           child: TextField(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(20.0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(11),
-                borderSide: BorderSide(width: 0, color: backgroundColor),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(11),
-                borderSide: BorderSide(width: 0, color: backgroundColor),
-              ),
-              filled: true,
-              fillColor: backgroundColor,
-              hintText: content,
-            ),
+            controller: controler,
+            decoration: inputDecoration,
           ),
         ),
       ],

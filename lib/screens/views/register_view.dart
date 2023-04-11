@@ -59,12 +59,15 @@ class RegisterPage extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Column(
-                  children: const [
-                    ElevatedCustom(
+                  children: [
+                    RegisterCustom(
                       content: "Inscription",
-                      textColor: Color.fromARGB(255, 107, 23, 81),
-                      backgroundColor: Color.fromARGB(249, 249, 249, 249),
-                      route: "/main",
+                      textColor: const Color.fromARGB(255, 107, 23, 81),
+                      backgroundColor: const Color.fromARGB(249, 249, 249, 249),
+                      pseudo: textControllerUsername,
+                      email: textControllerEmail,
+                      password: textControllerPassword,
+                      confirmPassword: textControllerConfirmPassword,
                     ),
                   ],
                 ),

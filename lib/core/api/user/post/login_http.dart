@@ -1,22 +1,21 @@
 import 'dart:convert' as convert;
-import 'dart:developer';
-
+import 'dart:convert';
 import 'package:http/http.dart' as http;
-
-import '../../../model/user_model.dart';
 import '../../get_adress_http.dart';
 
-Future<User> loginHttp(Map<String, dynamic> arguments) async {
-  var url = Uri.http(getAdress(), '/user/login');
+Future<Map<String, dynamic>> loginHttp(
+    {required String username, required String password}) async {
+  var url = Uri.http(getAdress(), '/api/public/login');
 
-  var response = await http.post(url, body: arguments);
+  var body = jsonEncode({"username": username, "password": password});
+
+  var response = await http.post(url, body: body);
   if (response.statusCode == 200) {
     var jsonResponse =
         convert.jsonDecode(response.body) as Map<String, dynamic>;
 
-    return User.fromJson(jsonResponse);
+    return {"success": true, "token": jsonResponse['Token']};
   } else {
-    log('Request failed with status: ${response.statusCode}.');
-    throw Exception('Failed to login');
+    return {"success": false};
   }
 }

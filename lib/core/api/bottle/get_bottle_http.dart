@@ -3,9 +3,9 @@ import 'dart:developer';
 import 'package:concordino_front/core/model/cave_model.dart';
 import 'package:http/http.dart' as http;
 
-import '../../get_adress_http.dart';
+import '../get_adress_http.dart';
 
-Future<List<Cave>> getUserCaveHttp(
+Future<List<Cave>> getUserBottlesHttp(
     Map<String, dynamic> arguments, String token) async {
   var url = Uri.http(getAdress(), '/api/caves', arguments);
 

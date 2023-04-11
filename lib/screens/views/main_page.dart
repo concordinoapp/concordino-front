@@ -1,10 +1,11 @@
-import 'package:concordino_front/core/auth/token.dart';
+import 'package:flutter/material.dart';
+
+import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
-import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:camera/camera.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/api/cave/post/create_cave_http.dart';
 import 'home_view.dart';
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 1;
 
   final pages = [
-    const SearchPage(),
+    SearchPage(),
     const HomePage(),
     ListPage(),
   ];
@@ -43,6 +44,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: true);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         heroTag: "Scan",
@@ -61,6 +64,7 @@ class _MainPageState extends State<MainPage> {
         child: const Icon(Icons.camera_alt),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_titles[_currentIndex]),
         backgroundColor: const Color.fromARGB(255, 131, 4, 11),
       ),
@@ -71,12 +75,10 @@ class _MainPageState extends State<MainPage> {
           right: 10,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => AddCaveView(),
-                ),
-              );
+              showDialog(
+                  context: context,
+                  builder: (context) =>
+                      AddCaveDialog(token: userProvider.token!));
             },
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
@@ -139,6 +141,8 @@ class AddCaveView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var userProvider = Provider.of<UserProvider>(context, listen: true);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Cave"),
@@ -156,7 +160,9 @@ class AddCaveView extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              createCaveHttp({"token": getToken(), "name": controler.text});
+              createCaveHttp(
+                  {"token": userProvider.token!, "name": controler.text},
+                  userProvider.token!);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 131, 4, 11),
@@ -166,5 +172,45 @@ class AddCaveView extends StatelessWidget {
         ],
       )),
     );
+  }
+}
+
+class AddCaveDialog extends StatefulWidget {
+  final String token;
+  const AddCaveDialog({
+    Key? key,
+    required this.token,
+  }) : super(key: key);
+
+  @override
+  State<AddCaveDialog> createState() => _AddCaveDialogState();
+}
+
+class _AddCaveDialogState extends State<AddCaveDialog> {
+  TextEditingController controler = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Column(
+      children: [
+        InputCustom(
+            content: "Nom cave",
+            controler: controler,
+            backgroundColor: Colors.white),
+        const SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            createCaveHttp({"name": controler.text}, widget.token);
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+          ),
+          child: const Text("Ajouter"),
+        )
+      ],
+    ));
   }
 }

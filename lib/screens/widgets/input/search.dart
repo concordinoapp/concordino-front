@@ -1,17 +1,23 @@
+import 'package:concordino_front/core/api/bottle/search_bottle_http.dart';
+import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class InputSearchCustom extends StatelessWidget {
   const InputSearchCustom(
-      {Key? key, required this.content, required this.backgroundColor})
+      {Key? key,
+      required this.content,
+      required this.backgroundColor,
+      required this.controller})
       : super(key: key);
   final String content;
+  final TextEditingController controller;
   final Color backgroundColor;
-
-  // Use button on view :
-  // const InputCustom(content: "E-mail", backgroundColor: Color.fromARGB(249, 249, 249, 249),),
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: true);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -36,7 +42,12 @@ class InputSearchCustom extends StatelessWidget {
               fillColor: backgroundColor,
               hintText: content,
               suffixIcon: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (controller.text.isNotEmpty) {
+                    searchBottleHttp({"name": controller.text.toLowerCase()},
+                        userProvider.token!);
+                  }
+                },
                 color: const Color.fromARGB(255, 107, 23, 81),
                 icon: const Icon(Icons.search),
               ),

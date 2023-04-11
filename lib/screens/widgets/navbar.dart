@@ -15,7 +15,7 @@ class _ConcordinoNavbarState extends State<ConcordinoNavbar> {
   // String _title = "Home";
 
   final pages = [
-    const SearchPage(),
+    SearchPage(),
     const HomePage(),
     // const ScanPage()
     ListPage(),
