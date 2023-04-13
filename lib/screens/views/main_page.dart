@@ -191,8 +191,10 @@ class _AddCaveDialogState extends State<AddCaveDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Column(
+    return MaterialApp(
+        home: Material(
+            child: Center(
+                child: Column(
       children: [
         InputCustom(
             content: "Nom cave",
@@ -211,6 +213,6 @@ class _AddCaveDialogState extends State<AddCaveDialog> {
           child: const Text("Ajouter"),
         )
       ],
-    ));
+    ))));
   }
 }

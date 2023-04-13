@@ -63,8 +63,8 @@ class WelcomePage extends StatelessWidget {
                         route: "/register"),
                     OutlinedCustom(
                       content: "J'ai déjà un compte",
-                      textColor: Color.fromARGB(249, 249, 249, 249),
-                      borderColor: Color.fromARGB(249, 249, 249, 249),
+                      textColor: Color.fromARGB(255, 107, 23, 81),
+                      borderColor: Color.fromARGB(248, 198, 193, 193),
                       route: "/login",
                     ),
                   ],
