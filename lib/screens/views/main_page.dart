@@ -191,32 +191,28 @@ class _AddCaveDialogState extends State<AddCaveDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
-    home: Material(
-      child: 
-        Center(
-          child: Column(
-            children: [
-              InputCustom(
-                  content: "Nom cave",
-                  controler: controler,
-                  backgroundColor: Colors.white),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  createCaveHttp({"name": controler.text}, widget.token);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-                ),
-                child: const Text("Ajouter"),
-              )
-            ],
-          )
+    return MaterialApp(
+        home: Material(
+            child: Center(
+                child: Column(
+      children: [
+        InputCustom(
+            content: "Nom cave",
+            controler: controler,
+            backgroundColor: Colors.white),
+        const SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            createCaveHttp({"name": controler.text}, widget.token);
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+          ),
+          child: const Text("Ajouter"),
         )
-      )
-    );
+      ],
+    ))));
   }
 }
