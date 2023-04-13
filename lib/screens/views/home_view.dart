@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/api/cave/get/get_user_cave_http.dart';
 import '../../core/model/cave_model.dart';
+import '../../core/provider/cave_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -88,6 +89,8 @@ class _HomePageState extends State<HomePage> {
                         userProvider.getProfilToken!),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
+                        Provider.of<CaveProvider>(context, listen: true)
+                            .setCaves(snapshot.data!);
                         return GridView.count(
                           mainAxisSpacing: 20,
                           crossAxisSpacing: 20,

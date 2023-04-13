@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:concordino_front/screens/widgets/input/select.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
-import 'package:concordino_front/screens/widgets/button/elevated.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/provider/cave_provider.dart';
 
 class BottleInfoView extends StatelessWidget {
   BottleInfoView({super.key});
   final TextEditingController controler = TextEditingController();
 
+  var selectCaveValue = "";
+  void caveSetter(String cave) {
+    selectCaveValue = cave;
+  }
+
   @override
   Widget build(BuildContext context) {
+    CaveProvider caveProvider =
+        Provider.of<CaveProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 131, 4, 11),
@@ -58,20 +67,30 @@ class BottleInfoView extends StatelessWidget {
                                         content: "Quantitée",
                                         controler: controler,
                                         backgroundColor: Colors.white),
-                                    const Padding(
-                                      padding: EdgeInsets.only(top: 10),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 11),
                                       child: SelectCustom(
-                                          list: ["cave foissiat", "cave lyon"],
+                                          list: caveProvider.cavesNames,
+                                          listCaves: caveProvider.caves,
+                                          caveSetter: caveSetter,
                                           backgroundColor: Colors.white),
                                     ),
-                                    const ElevatedCustom(
-                                      content: "Ajouter",
-                                      textColor:
-                                          Color.fromARGB(255, 107, 23, 81),
-                                      backgroundColor:
-                                          Color.fromARGB(249, 249, 249, 249),
-                                      route: "/main",
+
+                                    ElevatedButton(
+                                      // style: style,
+                                      onPressed: () {
+                                        print(selectCaveValue);
+                                      },
+                                      child: const Text('Ajouter'),
                                     ),
+                                    // const ElevatedCustom(
+                                    //   content: "Ajouter",
+                                    //   textColor:
+                                    //       Color.fromARGB(255, 107, 23, 81),
+                                    //   backgroundColor:
+                                    //       Color.fromARGB(249, 249, 249, 249),
+                                    //   route: "/main",
+                                    // ),
                                   ],
                                 ),
                               ),
