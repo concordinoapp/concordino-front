@@ -3,7 +3,9 @@ import 'package:concordino_front/screens/widgets/input/select.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/api/cave/post/add_bottle_in_cave_http.dart';
 import '../../core/provider/cave_provider.dart';
+import '../../core/provider/user_provider.dart';
 
 class BottleInfoView extends StatelessWidget {
   BottleInfoView({super.key});
@@ -16,6 +18,8 @@ class BottleInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider =
+    Provider.of<UserProvider>(context, listen: true);
     CaveProvider caveProvider =
         Provider.of<CaveProvider>(context, listen: true);
     return Scaffold(
@@ -77,9 +81,10 @@ class BottleInfoView extends StatelessWidget {
                                     ),
 
                                     ElevatedButton(
-                                      // style: style,
                                       onPressed: () {
-                                        print(selectCaveValue);
+                                        // caveSetter get id
+                                        print(caveProvider.getCaveByName(selectCaveValue).toString());
+                                        addBottleInCaveHttp({"token": userProvider.token!, "name": controler.text, "cave_id": caveProvider.getCaveByName(selectCaveValue)}, userProvider.token!);
                                       },
                                       child: const Text('Ajouter'),
                                     ),

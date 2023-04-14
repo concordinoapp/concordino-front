@@ -17,6 +17,11 @@ class CaveProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Cave getCaveByName(String name)
+  {
+    return caves.firstWhere((element) => element.name == name);
+  }
+
   // void clearProfil() {
   //   profil = null;
   //   notifyListeners();
