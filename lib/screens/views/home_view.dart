@@ -87,16 +87,8 @@ class _HomePageState extends State<HomePage> {
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
                 child: FutureBuilder<List<Cave>>(
                     future: Future.delayed(const Duration(seconds: 1), () => listCaves(userProvider, context)),
-                    // future: getUserCaveHttp(
-                    //     {"token": userProvider.getProfilToken},
-                    //     userProvider.getProfilToken!),
-                      // vraapper dans une fonction async et utiliser la donner que donne le getusercave
-                      // Provider.of<CaveProvider>(context, listen: true)
-                      //       .setCaves(snapshot.data!)
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        // Provider.of<CaveProvider>(context, listen: true)
-                        //     .setCaves(snapshot.data!);
                         return GridView.count(
                           mainAxisSpacing: 20,
                           crossAxisSpacing: 20,
