@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
@@ -84,13 +86,17 @@ class _HomePageState extends State<HomePage> {
               Container(
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
                 child: FutureBuilder<List<Cave>>(
-                    future: getUserCaveHttp(
-                        {"token": userProvider.getProfilToken},
-                        userProvider.getProfilToken!),
+                    future: Future.delayed(const Duration(seconds: 1), () => listCaves(userProvider, context)),
+                    // future: getUserCaveHttp(
+                    //     {"token": userProvider.getProfilToken},
+                    //     userProvider.getProfilToken!),
+                      // vraapper dans une fonction async et utiliser la donner que donne le getusercave
+                      // Provider.of<CaveProvider>(context, listen: true)
+                      //       .setCaves(snapshot.data!)
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        Provider.of<CaveProvider>(context, listen: true)
-                            .setCaves(snapshot.data!);
+                        // Provider.of<CaveProvider>(context, listen: true)
+                        //     .setCaves(snapshot.data!);
                         return GridView.count(
                           mainAxisSpacing: 20,
                           crossAxisSpacing: 20,
@@ -122,4 +128,10 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+FutureOr<List<Cave>> listCaves(userProvider, context) async {
+  var list = await getUserCaveHttp({"token": userProvider.getProfilToken}, userProvider.getProfilToken!);
+  Provider.of<CaveProvider>(context, listen: false).setCaves(list);
+  return list;
 }

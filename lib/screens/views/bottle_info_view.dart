@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:concordino_front/screens/widgets/input/select.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
@@ -83,8 +85,13 @@ class BottleInfoView extends StatelessWidget {
                                     ElevatedButton(
                                       onPressed: () {
                                         // caveSetter get id
-                                        print(caveProvider.getCaveByName(selectCaveValue).toString());
-                                        addBottleInCaveHttp({"token": userProvider.token!, "name": controler.text, "cave_id": caveProvider.getCaveByName(selectCaveValue)}, userProvider.token!);
+                                        // print(selectCaveValue);
+                                        // print(caveProvider.getCaveByName(selectCaveValue).toString());
+                                        // for (var i = 0; i < count; i++) {
+                                          
+                                        // }
+                                        String caveId = caveProvider.getCaveByName(selectCaveValue).id.toString();
+                                        addBottleInCaveHttp({"token": userProvider.token!, "name": controler.text, "cave_id": caveId, "bottle_id": "1"}, userProvider.token!);
                                       },
                                       child: const Text('Ajouter'),
                                     ),
@@ -124,11 +131,9 @@ class BottleInfoView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(),
-                    Positioned(
-                      child: Image.asset(
-                        'assets/images/wine_bottle.png',
-                        scale: 4,
-                      ),
+                    Image.asset(
+                      'assets/images/wine_bottle.png',
+                      scale: 4,
                     ),
                     const SideInfo(),
                   ],
