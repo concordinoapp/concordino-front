@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 
 import '../model/cave_model.dart';
@@ -19,8 +17,7 @@ class CaveProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Cave getCaveByName(String name)
-  {
+  Cave getCaveByName(String name) {
     return caves.firstWhere((element) => element.name == name);
   }
 }

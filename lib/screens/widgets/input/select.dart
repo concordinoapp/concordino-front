@@ -51,6 +51,9 @@ class _SelectCustomState extends State<SelectCustom> {
               ),
               onChanged: (String? value) {
                 widget.caveSetter(value!);
+                setState(() {
+                  dropdownValue = value;
+                });
               },
               items: widget.list.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(

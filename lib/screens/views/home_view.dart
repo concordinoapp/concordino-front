@@ -86,7 +86,8 @@ class _HomePageState extends State<HomePage> {
               Container(
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
                 child: FutureBuilder<List<Cave>>(
-                    future: Future.delayed(const Duration(seconds: 1), () => listCaves(userProvider, context)),
+                    future: Future.delayed(const Duration(milliseconds: 1),
+                        () => listCaves(userProvider, context)),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return GridView.count(
@@ -123,7 +124,8 @@ class _HomePageState extends State<HomePage> {
 }
 
 FutureOr<List<Cave>> listCaves(userProvider, context) async {
-  var list = await getUserCaveHttp({"token": userProvider.getProfilToken}, userProvider.getProfilToken!);
+  var list = await getUserCaveHttp(
+      {"token": userProvider.getProfilToken}, userProvider.getProfilToken!);
   Provider.of<CaveProvider>(context, listen: false).setCaves(list);
   return list;
 }

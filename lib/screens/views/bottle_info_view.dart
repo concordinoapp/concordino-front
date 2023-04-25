@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:concordino_front/screens/widgets/input/select.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
@@ -21,7 +19,7 @@ class BottleInfoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserProvider userProvider =
-    Provider.of<UserProvider>(context, listen: true);
+        Provider.of<UserProvider>(context, listen: true);
     CaveProvider caveProvider =
         Provider.of<CaveProvider>(context, listen: true);
     return Scaffold(
@@ -84,14 +82,16 @@ class BottleInfoView extends StatelessWidget {
 
                                     ElevatedButton(
                                       onPressed: () {
-                                        // caveSetter get id
-                                        // print(selectCaveValue);
-                                        // print(caveProvider.getCaveByName(selectCaveValue).toString());
-                                        // for (var i = 0; i < count; i++) {
-                                          
-                                        // }
-                                        String caveId = caveProvider.getCaveByName(selectCaveValue).id.toString();
-                                        addBottleInCaveHttp({"token": userProvider.token!, "name": controler.text, "cave_id": caveId, "bottle_id": "1"}, userProvider.token!);
+                                        String caveId = caveProvider
+                                            .getCaveByName(selectCaveValue)
+                                            .id
+                                            .toString();
+                                        addBottleInCaveHttp({
+                                          "token": userProvider.token!,
+                                          "name": controler.text,
+                                          "cave_id": caveId,
+                                          "bottle_id": "1"
+                                        }, userProvider.token!);
                                       },
                                       child: const Text('Ajouter'),
                                     ),
