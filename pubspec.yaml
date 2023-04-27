@@ -47,6 +47,7 @@ dependencies:
   permission_handler: ^10.0.0
   anim_search_bar: ^2.0.2
   image_picker: ^0.8.6
+  search_page: ^2.3.0
 
 dev_dependencies:
   flutter_test:

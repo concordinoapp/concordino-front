@@ -1,7 +1,7 @@
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
-import 'package:concordino_front/screens/widgets/card_stat.dart';
+// import 'package:concordino_front/screens/widgets/card_stat.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/api/cave/get/get_user_cave_http.dart';
@@ -30,38 +30,38 @@ class _HomePageState extends State<HomePage> {
         child: Center(
           child: ListView(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Mes Bouteilles :",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle:
-                          const TextStyle(fontSize: 10, color: Colors.black),
-                    ),
-                    onPressed: () {},
-                    child: const Text('VOIR TOUT'),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 70,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: const [
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                  ],
-                ),
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     const Text(
+              //       "Mes Bouteilles :",
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.bold, color: Colors.black),
+              //     ),
+              //     TextButton(
+              //       style: TextButton.styleFrom(
+              //         textStyle:
+              //             const TextStyle(fontSize: 10, color: Colors.black),
+              //       ),
+              //       onPressed: () {},
+              //       child: const Text('VOIR TOUT'),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 70,
+              //   child: ListView(
+              //     scrollDirection: Axis.horizontal,
+              //     children: const [
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //     ],
+              //   ),
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -83,35 +83,36 @@ class _HomePageState extends State<HomePage> {
               Container(
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
                 child: FutureBuilder<List<Cave>>(
-                    future: getUserCaveHttp(
-                        {"token": userProvider.getProfilToken},
-                        userProvider.getProfilToken!),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        return GridView.count(
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 20,
-                          childAspectRatio: 0.9,
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          crossAxisCount: 2,
-                          children: snapshot.data!
-                              .asMap()
-                              .entries
-                              .map((cave) => cave.key != 0
-                                  ? CardCave(
-                                      quantity: cave.value.bottles.length,
-                                      name: cave.value.name,
-                                    )
-                                  : const AddCardCaveButton())
-                              .toList(),
-                        );
-                      } else if (snapshot.hasError) {
-                        return const Text("Error");
-                      } else {
-                        return const CircularProgressIndicator();
-                      }
-                    }),
+                  future: getUserCaveHttp(
+                      {"token": userProvider.getProfilToken},
+                      userProvider.getProfilToken!),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return GridView.count(
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 20,
+                        childAspectRatio: 0.9,
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        crossAxisCount: 2,
+                        children: snapshot.data!
+                            .asMap()
+                            .entries
+                            .map((cave) => cave.key != 0
+                                ? CardCave(
+                                    quantity: cave.value.bottles.length,
+                                    name: cave.value.name,
+                                  )
+                                : const AddCardCaveButton())
+                            .toList(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return const Text("Error");
+                    } else {
+                      return const CircularProgressIndicator();
+                    }
+                  }
+                ),
               ),
             ],
           ),

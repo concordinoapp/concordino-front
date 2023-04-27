@@ -15,7 +15,12 @@ class CardCave extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Random random = Random();
-    return Container(
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, "/caveList");
+      },
+      child: Container(
       height: 150,
       width: 100,
       decoration: BoxDecoration(
@@ -62,6 +67,7 @@ class CardCave extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }
