@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         '/register': (context) => RegisterPage(),
         '/home': (context) => const HomePage(),
         '/search': (context) => SearchPage(),
-        '/caveList': (context) => CavePage(),
+        // '/caveList': (context) => CavePage(),
         // '/scan': (context) => const ScanPage(),
         '/list': (context) => ListPage(),
         '/community': (context) => const CommunityPage(),

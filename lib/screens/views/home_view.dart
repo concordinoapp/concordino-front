@@ -102,6 +102,7 @@ class _HomePageState extends State<HomePage> {
                                 ? CardCave(
                                     quantity: cave.value.bottles.length,
                                     name: cave.value.name,
+                                    id: cave.value.id
                                   )
                                 : const AddCardCaveButton())
                             .toList(),

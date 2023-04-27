@@ -3,22 +3,33 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/api/bottle/get_bottle_in_cave.dart';
 import '../../core/provider/user_provider.dart';
+import '../views/cave_view.dart';
 import '../views/main_page.dart';
 
 class CardCave extends StatelessWidget {
   final String name;
   final int quantity;
+  final int id;
 
-  const CardCave({Key? key, required this.name, required this.quantity})
+  const CardCave({Key? key, required this.name, required this.quantity, required this.id})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var userProvider = Provider.of<UserProvider>(context, listen: true);
+
     Random random = Random();
 
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, "/caveList");
+        getBottlesInCaveHttp(
+        {"token": userProvider.getProfilToken, 'cave_id': id.toString()},
+        userProvider.getProfilToken!).then((value) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CavePage(list: value),
+              )));
       },
       child: Container(
       height: 150,
@@ -80,6 +91,7 @@ class AddCardCaveButton extends CardCave {
           key: key,
           name: "Ajouter une cave",
           quantity: 0,
+          id: 0,
         );
 
   @override

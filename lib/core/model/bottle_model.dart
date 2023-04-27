@@ -5,15 +5,11 @@ class Bottle {
   // final DateTime date;
 
   addBottle() {
-    // var tmpQuantity = int.parse(quantity);
-    // tmpQuantity +=1;
-    // quantity = tmpQuantity.toString();
+    quantity += 1;
   }
 
   decreaseBottle() {
-    // var tmpQuantity = int.parse(quantity);
-    // if (tmpQuantity > 0) tmpQuantity -= 1;
-    // quantity = tmpQuantity.toString();
+    if (quantity > 0) quantity -= 1;
   }
 
   Bottle({
@@ -24,7 +20,6 @@ class Bottle {
   });
 
   factory Bottle.fromJson(Map<String, dynamic> json) {
-      // var test = json['bottle_obj']["quantity"];
     return Bottle(
       name: json['name'],
       quantity: json['bottle_obj']['quantity'],
