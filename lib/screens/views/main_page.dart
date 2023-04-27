@@ -1,9 +1,9 @@
+import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
-import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:camera/camera.dart';
 import 'package:provider/provider.dart';
 
@@ -51,6 +51,10 @@ class _MainPageState extends State<MainPage> {
         heroTag: "Scan",
         key: const Key("Scan"),
         onPressed: () async {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => BottleInfoView()),
+          // );
           await availableCameras().then(
             (cameras) => Navigator.push(
               context,

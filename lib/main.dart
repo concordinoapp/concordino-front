@@ -1,3 +1,4 @@
+import 'package:concordino_front/core/provider/cave_provider.dart';
 import 'package:concordino_front/screens/views/community_view.dart';
 import 'package:concordino_front/screens/views/main_page.dart';
 import 'package:concordino_front/screens/views/register_view.dart';
@@ -16,6 +17,7 @@ void main() async {
 
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => UserProvider()),
+    ChangeNotifierProvider(create: (context) => CaveProvider()),
   ], child: const MyApp()));
 }
 
