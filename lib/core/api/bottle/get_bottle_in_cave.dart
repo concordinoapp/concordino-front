@@ -5,9 +5,9 @@ import 'package:http/http.dart' as http;
 
 import '../get_adress_http.dart';
 
-Future<List<Bottle>> getBottlesInBottleHttp(
+Future<List<Bottle>> getBottlesInCaveHttp(
     Map<String, dynamic> arguments, String token) async {
-  var url = Uri.http(getAdress(), '/api/bottlesInBottle', arguments);
+  var url = Uri.http(getAdress(), '/api/bottlesInCave', arguments);
 
   var response = await http.get(url, headers: {"Token": token});
   if (response.statusCode == 200) {
