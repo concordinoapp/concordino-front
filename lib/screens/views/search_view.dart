@@ -39,3 +39,91 @@ class SearchPage extends StatelessWidget {
     );
   }
 }
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:search_page/search_page.dart';
+
+// class Bottle implements Comparable<Bottle> {
+//   final String name;
+
+//   const Bottle(this.name);
+
+//   @override
+//   int compareTo(Bottle other) => name.compareTo(other.name);
+// }
+
+// void main() => runApp(const MyApp());
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'search_page',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         useMaterial3: true,
+//       ),
+//       home: const MyHomePage(),
+//     );
+//   }
+// }
+
+// class SearchView extends StatelessWidget {
+//   static const bottle = [
+//     Bottle('Mike'),
+//     Bottle('Todd'),
+//     Bottle('Ahmad'),
+//     Bottle('Anthony'),
+//     Bottle('Annette'),
+//   ];
+
+//   const SearchView({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Search Page'),
+//       ),
+//       body: ListView.builder(
+//         itemCount: bottle.length,
+//         itemBuilder: (context, index) {
+//           final Bottle = bottle[index];
+
+//           return ListTile(
+//             title: Text(Bottle.name),
+//           );
+//         },
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         tooltip: 'Search bottle',
+//         onPressed: () => showSearch(
+//           context: context,
+//           delegate: SearchPage(
+//             onQueryUpdate: print,
+//             items: bottle,
+//             searchLabel: 'Search bottle',
+//             suggestion: const Center(
+//               child: Text('Filter bottle by name, surname or age'),
+//             ),
+//             failure: const Center(
+//               child: Text('No Bottle found :('),
+//             ),
+//             filter: (bottle) => [
+//               bottle.name,
+//             ],
+//             sort: (a, b) => a.compareTo(b),
+//             builder: (bottle) => ListTile(
+//               title: Text(bottle.name),
+//             ),
+//           ),
+//         ),
+//         child: const Icon(Icons.search),
+//       ),
+//     );
+//   }
+// }
