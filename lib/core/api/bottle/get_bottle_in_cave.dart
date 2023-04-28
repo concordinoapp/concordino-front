@@ -16,6 +16,9 @@ Future<List<Bottle>> getBottlesInCaveHttp(
     return decodedResponse['data']
         .map<Bottle>((bottle) => Bottle.fromJson(bottle))
         .toList();
+  } else if (response.body == '{"error":"cave is empty"}') {
+    List<Bottle> list = [];
+    return list;
   } else {
     log('Request failed with status: ${response.statusCode}.');
     throw Exception('Could not get user bottles');

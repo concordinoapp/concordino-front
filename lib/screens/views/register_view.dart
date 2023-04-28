@@ -11,6 +11,8 @@ class RegisterPage extends StatelessWidget {
   final textControllerPassword = TextEditingController();
   final textControllerConfirmPassword = TextEditingController();
 
+  void quantitySetter(int quantityValue) {}
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,21 +41,29 @@ class RegisterPage extends StatelessWidget {
               InputCustom(
                 content: "Pseudo",
                 controler: textControllerUsername,
+                quantitySetter: quantitySetter,
+                passwordVisible: false,
                 backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               InputCustom(
                 content: "E-mail",
                 controler: textControllerEmail,
+                quantitySetter: quantitySetter,
+                passwordVisible: false,
                 backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               InputCustom(
                 content: "Mot de passe",
                 controler: textControllerPassword,
+                quantitySetter: quantitySetter,
+                passwordVisible: false,
                 backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               InputCustom(
                 content: "Confirmation du mot de passe",
                 controler: textControllerConfirmPassword,
+                quantitySetter: quantitySetter,
+                passwordVisible: false,
                 backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               Container(

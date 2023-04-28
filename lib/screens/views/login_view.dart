@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
     Navigator.pushReplacementNamed(context, "/main");
   }
 
+  void quantitySetter(int quantityValue) {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,11 +57,15 @@ class _LoginPageState extends State<LoginPage> {
               InputCustom(
                 content: "Pseudo",
                 controler: textControllerUsername,
+                quantitySetter: quantitySetter,
+                passwordVisible: false,
                 backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               InputCustom(
                 content: "Mot de passe",
                 controler: textControllerPassword,
+                quantitySetter: quantitySetter,
+                passwordVisible: true,
                 backgroundColor: const Color.fromARGB(249, 249, 249, 249),
               ),
               Container(

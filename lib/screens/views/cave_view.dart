@@ -11,12 +11,11 @@ class CavePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-      ),
-      body: BottleList(
-        bottles: list,
-      )
-    );
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+        ),
+        body: BottleList(
+          bottles: list,
+        ));
   }
 }

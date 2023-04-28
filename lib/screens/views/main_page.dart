@@ -1,9 +1,9 @@
+import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/views/search_view.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
-import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:camera/camera.dart';
 import 'package:provider/provider.dart';
 
@@ -51,6 +51,10 @@ class _MainPageState extends State<MainPage> {
         heroTag: "Scan",
         key: const Key("Scan"),
         onPressed: () async {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => BottleInfoView()),
+          // );
           await availableCameras().then(
             (cameras) => Navigator.push(
               context,
@@ -139,6 +143,8 @@ class AddCaveView extends StatelessWidget {
   AddCaveView({super.key});
   final TextEditingController controler = TextEditingController();
 
+  void quantitySetter(int quantityValue) {}
+
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context, listen: true);
@@ -154,6 +160,8 @@ class AddCaveView extends StatelessWidget {
           InputCustom(
               content: "Nom cave",
               controler: controler,
+              quantitySetter: quantitySetter,
+              passwordVisible: false,
               backgroundColor: Colors.white),
           const SizedBox(
             height: 20,
@@ -189,6 +197,8 @@ class AddCaveDialog extends StatefulWidget {
 class _AddCaveDialogState extends State<AddCaveDialog> {
   TextEditingController controler = TextEditingController();
 
+  void quantitySetter(int quantityValue) {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -199,6 +209,8 @@ class _AddCaveDialogState extends State<AddCaveDialog> {
         InputCustom(
             content: "Nom cave",
             controler: controler,
+            quantitySetter: quantitySetter,
+            passwordVisible: false,
             backgroundColor: Colors.white),
         const SizedBox(
           height: 20,

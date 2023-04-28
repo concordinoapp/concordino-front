@@ -13,7 +13,8 @@ class CardCave extends StatelessWidget {
   final int quantity;
   final int id;
 
-  const CardCave({Key? key, required this.name, required this.quantity, required this.id})
+  const CardCave(
+      {Key? key, required this.name, required this.quantity, required this.id})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -23,62 +24,64 @@ class CardCave extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        getBottlesInCaveHttp(
-        {"token": userProvider.getProfilToken, 'cave_id': id.toString()},
-        userProvider.getProfilToken!).then((value) => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => CavePage(list: value),
-              )));
+        getBottlesInCaveHttp({
+          "token": userProvider.getProfilToken,
+          'cave_id': id.toString()
+        }, userProvider.getProfilToken!)
+            .then((value) => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => CavePage(list: value),
+                )));
       },
       child: Container(
-      height: 150,
-      width: 100,
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        borderRadius: BorderRadius.circular(12),
-        color: Color.fromRGBO(
-          random.nextInt(255),
-          random.nextInt(255),
-          random.nextInt(255),
-          1,
-        ),
-      ),
-      child: Container(
-        height: 25,
-        width: MediaQuery.of(context).size.width,
-        margin: const EdgeInsets.fromLTRB(0, 120, 0, 0),
-        decoration: const BoxDecoration(
+        height: 150,
+        width: 100,
+        decoration: BoxDecoration(
           boxShadow: [
-            BoxShadow(),
-          ],
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(12),
-            bottomRight: Radius.circular(12),
-          ),
-          color: Color.fromARGB(255, 255, 255, 255),
-        ),
-        child: Column(
-          children: [
-            Text(
-              name,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3), // changes position of shadow
             ),
-            Text(
-              quantity.toString(),
-              style: const TextStyle(fontSize: 12),
-            )
           ],
+          borderRadius: BorderRadius.circular(12),
+          color: Color.fromRGBO(
+            random.nextInt(255),
+            random.nextInt(255),
+            random.nextInt(255),
+            1,
+          ),
+        ),
+        child: Container(
+          height: 25,
+          width: MediaQuery.of(context).size.width,
+          margin: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(),
+            ],
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(12),
+              bottomRight: Radius.circular(12),
+            ),
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+          child: Column(
+            children: [
+              Text(
+                name,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                quantity.toString(),
+                style: const TextStyle(fontSize: 12),
+              )
+            ],
+          ),
         ),
       ),
-    ),
     );
   }
 }

@@ -40,8 +40,6 @@ class SearchPage extends StatelessWidget {
   }
 }
 
-
-
 // import 'package:flutter/material.dart';
 // import 'package:search_page/search_page.dart';
 
