@@ -1,4 +1,3 @@
-
 import 'package:concordino_front/screens/views/bottle_info_view.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +60,7 @@ class _MainPageState extends State<MainPage> {
             (cameras) => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => TakePictureScreen(camera :cameras[0]),
+                builder: (_) => TakePictureScreen(camera: cameras[0]),
               ),
             ),
           );

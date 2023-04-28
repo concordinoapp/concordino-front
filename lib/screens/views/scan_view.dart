@@ -9,8 +9,6 @@ import 'package:provider/provider.dart';
 
 import '../../core/provider/user_provider.dart';
 
-
-
 // A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
   const TakePictureScreen({
@@ -54,7 +52,10 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a picture'), backgroundColor: const Color.fromARGB(255, 131, 4, 11),),
+      appBar: AppBar(
+        title: const Text('Take a picture'),
+        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+      ),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
       // controller has finished initializing.
@@ -118,36 +119,40 @@ class DisplayPictureScreen extends StatelessWidget {
     String token = Provider.of<UserProvider>(context, listen: true).token!;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Display the Picture'), backgroundColor: const Color.fromARGB(255, 131, 4, 11),),
-      // The image is stored as a file on the device. Use the `Image.file`
-      // constructor with the given path to display the image.
-      body: Image.file(File(imagePath)),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 131, 4, 11),
-        onPressed: () {
-          searchImageHttp(File(imagePath), token).then((value) => {
-
-          if (value.isNotEmpty) {
-          Navigator.pop(context),
-          Navigator.pop(context),
-          showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return ModalBottles(bottles : value);
-      },
-    ),
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Bottle not found"),
-                ),
-              ),
-            }
-          });
-        },
-        child: const Icon(Icons.check),
-      )
-    );
+        appBar: AppBar(
+          title: const Text('Display the Picture'),
+          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+        ),
+        // The image is stored as a file on the device. Use the `Image.file`
+        // constructor with the given path to display the image.
+        body: Image.file(File(imagePath)),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: const Color.fromARGB(255, 131, 4, 11),
+          onPressed: () {
+            searchImageHttp(File(imagePath), token).then((value) => {
+                  if (value.isNotEmpty)
+                    {
+                      Navigator.pop(context),
+                      Navigator.pop(context),
+                      showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return ModalBottles(bottles: value);
+                        },
+                      ),
+                    }
+                  else
+                    {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Bottle not found"),
+                        ),
+                      ),
+                    }
+                });
+          },
+          child: const Icon(Icons.check),
+        ));
   }
 }
 
@@ -166,12 +171,12 @@ class ModalBottles extends StatelessWidget {
         height: 200,
         width: 200,
         child: ListView.builder(
-          itemCount: bottles.length,
-          itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(bottles[index].name),
-          );
-        }),
+            itemCount: bottles.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(bottles[index].name),
+              );
+            }),
       ),
       actions: <Widget>[
         TextButton(
@@ -187,4 +192,3 @@ class ModalBottles extends StatelessWidget {
     );
   }
 }
-

@@ -32,8 +32,6 @@ Future<List<CaveBottle>> searchImageHttp(File file, String token) async {
     if (response.data['data'].length != 0)
       log("huhuh h ${response.data['data'][0]["id"]}");
 
-
-
     response.data["data"].map((e) => bottlesList.add(CaveBottle(
         id: response.data["data"][e]["id"],
         name: response.data["data"][e]["name"],
@@ -45,7 +43,7 @@ Future<List<CaveBottle>> searchImageHttp(File file, String token) async {
         variety: response.data["data"][e]["variety"])));
 
     int length = response.data["data"].length;
-    for (int e = 0; e < length; e ++) {
+    for (int e = 0; e < length; e++) {
       bottlesList.add(CaveBottle(
           id: response.data["data"][e]["id"],
           name: response.data["data"][e]["name"],
@@ -56,9 +54,8 @@ Future<List<CaveBottle>> searchImageHttp(File file, String token) async {
           winery: response.data["data"][e]["winery"],
           variety: response.data["data"][e]["variety"]));
 
-          log("added ${response.data["data"][e]["name"]}");
+      log("added ${response.data["data"][e]["name"]}");
     }
-
 
     log('list length ${bottlesList.length.toString()}');
     return bottlesList;

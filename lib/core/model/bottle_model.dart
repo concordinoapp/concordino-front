@@ -5,7 +5,7 @@ class Bottle {
   final DateTime date;
 
   addBottle() {
-      quantity += 1;
+    quantity += 1;
   }
 
   decreaseBottle() {
