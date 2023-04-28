@@ -28,9 +28,6 @@ Future<List<CaveBottle>> searchImageHttp(File file, String token) async {
   );
   if (response.statusCode == 200) {
     List<CaveBottle> bottlesList = [];
-    log("bah bah ${response.data['data'].length.toString()}");
-    if (response.data['data'].length != 0)
-      log("huhuh h ${response.data['data'][0]["id"]}");
 
     response.data["data"].map((e) => bottlesList.add(CaveBottle(
         id: response.data["data"][e]["id"],
