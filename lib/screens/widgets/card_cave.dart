@@ -22,8 +22,8 @@ class CardCave extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
+            spreadRadius: 1,
+            blurRadius: 2,
             offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
