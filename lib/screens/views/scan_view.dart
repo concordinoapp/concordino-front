@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:concordino_front/core/api/bottle/search_image_http.dart';
 import 'package:concordino_front/core/model/cave_bottle_model.dart';
+import 'package:concordino_front/screens/views/bottle_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -75,32 +76,26 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         backgroundColor: const Color.fromARGB(255, 131, 4, 11),
         // Provide an onPressed callback.
         onPressed: () async {
-          // Take the Picture in a try / catch block. If anything goes wrong,
-          // catch the error.
-          try {
-            // Ensure that the camera is initialized.
-            await _initializeControllerFuture;
+          Navigator.push(context, 
+          MaterialPageRoute(builder: (context) => BottleInfoView()),
+          );
+          // try {
+          //   await _initializeControllerFuture;
 
-            // Attempt to take a picture and get the file `image`
-            // where it was saved.
-            final image = await _controller.takePicture();
+          //   final image = await _controller.takePicture();
 
-            if (!mounted) return;
+          //   if (!mounted) return;
 
-            // If the picture was taken, display it on a new screen.
-            await Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => DisplayPictureScreen(
-                  // Pass the automatically generated path to
-                  // the DisplayPictureScreen widget.
-                  imagePath: image.path,
-                ),
-              ),
-            );
-          } catch (e) {
-            // If an error occurs, log the error to the console.
-            print(e);
-          }
+          //   await Navigator.of(context).push(
+          //     MaterialPageRoute(
+          //       builder: (context) => DisplayPictureScreen(
+          //         imagePath: image.path,
+          //       ),
+          //     ),
+          //   );
+          // } catch (e) {
+          //   print(e);
+          // }
         },
         child: const Icon(Icons.camera_alt),
       ),
