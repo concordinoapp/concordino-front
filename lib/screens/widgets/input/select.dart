@@ -1,9 +1,16 @@
+import 'package:concordino_front/core/model/cave_model.dart';
 import 'package:flutter/material.dart';
 
 class SelectCustom extends StatefulWidget {
   final List<String> list;
+  final List<Cave> listCaves;
+  final Function(String) caveSetter;
   const SelectCustom(
-      {Key? key, required this.list, required this.backgroundColor})
+      {Key? key,
+      required this.list,
+      required this.listCaves,
+      required this.caveSetter,
+      required this.backgroundColor})
       : super(key: key);
   final Color backgroundColor;
 
@@ -43,8 +50,9 @@ class _SelectCustomState extends State<SelectCustom> {
                 color: const Color.fromARGB(255, 107, 23, 81),
               ),
               onChanged: (String? value) {
+                widget.caveSetter(value!);
                 setState(() {
-                  dropdownValue = value!;
+                  dropdownValue = value;
                 });
               },
               items: widget.list.map<DropdownMenuItem<String>>((String value) {

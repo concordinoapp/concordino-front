@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:concordino_front/screens/widgets/input/select.dart';
 import 'package:concordino_front/screens/widgets/input/input.dart';
-import 'package:concordino_front/screens/widgets/button/elevated.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/api/cave/post/add_bottle_in_cave_http.dart';
+import '../../core/provider/cave_provider.dart';
+import '../../core/provider/user_provider.dart';
 
 class BottleInfoView extends StatelessWidget {
   BottleInfoView({super.key});
   final TextEditingController controler = TextEditingController();
 
+  var selectCaveValue = "";
+  void caveSetter(String cave) {
+    selectCaveValue = cave;
+  }
+
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: true);
+    CaveProvider caveProvider =
+        Provider.of<CaveProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 131, 4, 11),
@@ -58,20 +71,38 @@ class BottleInfoView extends StatelessWidget {
                                         content: "Quantitée",
                                         controler: controler,
                                         backgroundColor: Colors.white),
-                                    const Padding(
-                                      padding: EdgeInsets.only(top: 10),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 11),
                                       child: SelectCustom(
-                                          list: ["cave foissiat", "cave lyon"],
+                                          list: caveProvider.cavesNames,
+                                          listCaves: caveProvider.caves,
+                                          caveSetter: caveSetter,
                                           backgroundColor: Colors.white),
                                     ),
-                                    const ElevatedCustom(
-                                      content: "Ajouter",
-                                      textColor:
-                                          Color.fromARGB(255, 107, 23, 81),
-                                      backgroundColor:
-                                          Color.fromARGB(249, 249, 249, 249),
-                                      route: "/main",
+
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        String caveId = caveProvider
+                                            .getCaveByName(selectCaveValue)
+                                            .id
+                                            .toString();
+                                        addBottleInCaveHttp({
+                                          "token": userProvider.token!,
+                                          "name": controler.text,
+                                          "cave_id": caveId,
+                                          "bottle_id": "1"
+                                        }, userProvider.token!);
+                                      },
+                                      child: const Text('Ajouter'),
                                     ),
+                                    // const ElevatedCustom(
+                                    //   content: "Ajouter",
+                                    //   textColor:
+                                    //       Color.fromARGB(255, 107, 23, 81),
+                                    //   backgroundColor:
+                                    //       Color.fromARGB(249, 249, 249, 249),
+                                    //   route: "/main",
+                                    // ),
                                   ],
                                 ),
                               ),
@@ -100,11 +131,9 @@ class BottleInfoView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(),
-                    Positioned(
-                      child: Image.asset(
-                        'assets/images/wine_bottle.png',
-                        scale: 4,
-                      ),
+                    Image.asset(
+                      'assets/images/wine_bottle.png',
+                      scale: 4,
                     ),
                     const SideInfo(),
                   ],

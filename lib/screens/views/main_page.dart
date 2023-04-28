@@ -1,3 +1,4 @@
+
 import 'package:concordino_front/screens/views/bottle_info_view.dart';
 import 'package:concordino_front/screens/views/scan_view.dart';
 import 'package:flutter/material.dart';

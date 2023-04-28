@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/api/cave/get/get_user_cave_http.dart';
 import '../../core/model/cave_model.dart';
+import '../../core/provider/cave_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -83,9 +86,8 @@ class _HomePageState extends State<HomePage> {
               Container(
                 margin: const EdgeInsets.fromLTRB(35, 10, 35, 20),
                 child: FutureBuilder<List<Cave>>(
-                    future: getUserCaveHttp(
-                        {"token": userProvider.getProfilToken},
-                        userProvider.getProfilToken!),
+                    future: Future.delayed(const Duration(milliseconds: 1),
+                        () => listCaves(userProvider, context)),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return GridView.count(
@@ -119,4 +121,11 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+FutureOr<List<Cave>> listCaves(userProvider, context) async {
+  var list = await getUserCaveHttp(
+      {"token": userProvider.getProfilToken}, userProvider.getProfilToken!);
+  Provider.of<CaveProvider>(context, listen: false).setCaves(list);
+  return list;
 }
