@@ -12,8 +12,13 @@ class BottleInfoView extends StatelessWidget {
   final TextEditingController controler = TextEditingController();
 
   var selectCaveValue = "";
+  var quantity = 1;
   void caveSetter(String cave) {
     selectCaveValue = cave;
+  }
+
+  void quantitySetter(int quantityValue) {
+    quantity = quantityValue;
   }
 
   @override
@@ -70,6 +75,8 @@ class BottleInfoView extends StatelessWidget {
                                     InputCustom(
                                         content: "Quantitée",
                                         controler: controler,
+                                        quantitySetter: quantitySetter,
+                                        passwordVisible: false,
                                         backgroundColor: Colors.white),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 11),
@@ -90,7 +97,8 @@ class BottleInfoView extends StatelessWidget {
                                           "token": userProvider.token!,
                                           "name": controler.text,
                                           "cave_id": caveId,
-                                          "bottle_id": "1"
+                                          "bottle_id": "86978",
+                                          "quantity": quantity.toString()
                                         }, userProvider.token!);
                                       },
                                       child: const Text('Ajouter'),

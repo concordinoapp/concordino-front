@@ -34,7 +34,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Concordino',
-      // home: const WelcomePage(),
       initialRoute: '/splash',
       routes: {
         '/main': (context) => const MainPage(),
@@ -44,6 +43,7 @@ class _MyAppState extends State<MyApp> {
         '/register': (context) => RegisterPage(),
         '/home': (context) => const HomePage(),
         '/search': (context) => SearchPage(),
+        // '/caveList': (context) => CavePage(),
         // '/scan': (context) => const ScanPage(),
         '/list': (context) => ListPage(),
         '/community': (context) => const CommunityPage(),

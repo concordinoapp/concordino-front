@@ -1,8 +1,8 @@
 class Bottle {
   final String name;
-  int quantity = 1;
-  final String? image;
-  final DateTime date;
+  int quantity;
+  // final String? image;
+  // final DateTime date;
 
   addBottle() {
     quantity += 1;
@@ -15,16 +15,16 @@ class Bottle {
   Bottle({
     required this.name,
     required this.quantity,
-    this.image,
-    required this.date,
+    // this.image,
+    // required this.date,
   });
 
   factory Bottle.fromJson(Map<String, dynamic> json) {
     return Bottle(
       name: json['name'],
-      quantity: json['quantity'] ?? 1,
-      image: json['image'],
-      date: DateTime.parse(json['date'] ?? DateTime.now().toString()),
+      quantity: json['bottle_obj']['quantity'],
+      // image: json['image'],
+      // date: DateTime.parse(json['bottle_obj']["year"]),
     );
   }
 }

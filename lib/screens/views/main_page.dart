@@ -144,6 +144,8 @@ class AddCaveView extends StatelessWidget {
   AddCaveView({super.key});
   final TextEditingController controler = TextEditingController();
 
+  void quantitySetter(int quantityValue) {}
+
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context, listen: true);
@@ -159,6 +161,8 @@ class AddCaveView extends StatelessWidget {
           InputCustom(
               content: "Nom cave",
               controler: controler,
+              quantitySetter: quantitySetter,
+              passwordVisible: false,
               backgroundColor: Colors.white),
           const SizedBox(
             height: 20,
@@ -194,6 +198,8 @@ class AddCaveDialog extends StatefulWidget {
 class _AddCaveDialogState extends State<AddCaveDialog> {
   TextEditingController controler = TextEditingController();
 
+  void quantitySetter(int quantityValue) {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -204,6 +210,8 @@ class _AddCaveDialogState extends State<AddCaveDialog> {
         InputCustom(
             content: "Nom cave",
             controler: controler,
+            quantitySetter: quantitySetter,
+            passwordVisible: false,
             backgroundColor: Colors.white),
         const SizedBox(
           height: 20,

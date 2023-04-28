@@ -19,80 +19,53 @@ List<Bottle> list = [
   Bottle(
     name: "Saint emilion",
     quantity: 1,
-    image:
-        "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-    date: DateTime.now(),
   ),
   Bottle(
-      name: "Rouilly",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Rouilly",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Fauconnerie",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Fauconnerie",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Chateau lacours",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Chateau lacours",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Dorle de dames",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Dorle de dames",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Pinot noir ",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Pinot noir ",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Gewurstraminer",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Gewurstraminer",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Chardonnay",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Chardonnay",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Vin Jaune",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Vin Jaune",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Vin de paille",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Vin de paille",
+    quantity: 1,
+  ),
   Bottle(
-      name: "Chateau de la bilancourt",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "Chateau de la bilancourt",
+    quantity: 1,
+  ),
   Bottle(
-      name: "oouoiuoiuoiudsqoid",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "oouoiuoiuoiudsqoid",
+    quantity: 1,
+  ),
   Bottle(
-      name: "oouoiuoiuoiudsqoid",
-      quantity: 1,
-      image:
-          "https://i.pinimg.com/originals/7b/65/c2/7b65c26ed7f87b4875051d578584b657.jpg",
-      date: DateTime.now()),
+    name: "oouoiuoiuoiudsqoid",
+    quantity: 1,
+  ),
 ];

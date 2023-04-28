@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:concordino_front/constants/colors.dart';
 import 'package:concordino_front/core/provider/user_provider.dart';
 import 'package:concordino_front/screens/widgets/card_cave.dart';
-import 'package:concordino_front/screens/widgets/card_stat.dart';
+// import 'package:concordino_front/screens/widgets/card_stat.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/api/cave/get/get_user_cave_http.dart';
@@ -33,38 +33,38 @@ class _HomePageState extends State<HomePage> {
         child: Center(
           child: ListView(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Mes Bouteilles :",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle:
-                          const TextStyle(fontSize: 10, color: Colors.black),
-                    ),
-                    onPressed: () {},
-                    child: const Text('VOIR TOUT'),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 70,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: const [
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                    CardStat(),
-                  ],
-                ),
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     const Text(
+              //       "Mes Bouteilles :",
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.bold, color: Colors.black),
+              //     ),
+              //     TextButton(
+              //       style: TextButton.styleFrom(
+              //         textStyle:
+              //             const TextStyle(fontSize: 10, color: Colors.black),
+              //       ),
+              //       onPressed: () {},
+              //       child: const Text('VOIR TOUT'),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 70,
+              //   child: ListView(
+              //     scrollDirection: Axis.horizontal,
+              //     children: const [
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //       CardStat(),
+              //     ],
+              //   ),
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                                   ? CardCave(
                                       quantity: cave.value.bottles.length,
                                       name: cave.value.name,
-                                    )
+                                      id: cave.value.id)
                                   : const AddCardCaveButton())
                               .toList(),
                         );
