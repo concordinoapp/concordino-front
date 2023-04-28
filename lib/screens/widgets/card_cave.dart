@@ -34,6 +34,26 @@ class CardCave extends StatelessWidget {
                   builder: (_) => CavePage(list: value),
                 )));
       },
+    // return Container(
+    //   height: 150,
+    //   width: 100,
+    //   decoration: BoxDecoration(
+    //     boxShadow: [
+    //       BoxShadow(
+    //         color: Colors.grey.withOpacity(0.5),
+    //         spreadRadius: 1,
+    //         blurRadius: 2,
+    //         offset: const Offset(0, 3), // changes position of shadow
+    //       ),
+    //     ],
+    //     borderRadius: BorderRadius.circular(12),
+    //     color: Color.fromRGBO(
+    //       random.nextInt(255),
+    //       random.nextInt(255),
+    //       random.nextInt(255),
+    //       1,
+    //     ),
+    //   ),
       child: Container(
         height: 150,
         width: 100,
@@ -72,12 +92,12 @@ class CardCave extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
-              Text(
-                quantity.toString(),
-                style: const TextStyle(fontSize: 12),
-              )
+              // Text(
+              //   quantity.toString(),
+              //   style: const TextStyle(fontSize: 12),
+              // )
             ],
           ),
         ),
