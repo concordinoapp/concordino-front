@@ -1,11 +1,11 @@
 class Bottle {
   final String name;
-  int quantity;
+  int quantity = 1;
   final String? image;
   final DateTime date;
 
   addBottle() {
-    quantity += 1;
+      quantity += 1;
   }
 
   decreaseBottle() {
@@ -22,9 +22,9 @@ class Bottle {
   factory Bottle.fromJson(Map<String, dynamic> json) {
     return Bottle(
       name: json['name'],
-      quantity: json['quantity'],
+      quantity: json['quantity'] ?? 1,
       image: json['image'],
-      date: DateTime.parse(json['date']),
+      date: DateTime.parse(json['date'] ?? DateTime.now().toString()),
     );
   }
 }
